@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
 {
+    /// <RefExplanation>
+    /// EVERY SCRIPT, INCLUDING THIS ONE, THAT STARTS WITH "REF"
+    /// ARE ABANDONED SCRIPTS THAT I AM JUST USING AS REFERENCES.
+    /// </RefExplanation>
 
     public Transform equipPosition;
     public float distance = 10f;

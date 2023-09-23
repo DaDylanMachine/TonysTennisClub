@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PhysicsPickup : MonoBehaviour
 {
+    /// <RefExplanation>
+    /// EVERY SCRIPT, INCLUDING THIS ONE, THAT STARTS WITH "REF"
+    /// ARE ABANDONED SCRIPTS THAT I AM JUST USING AS REFERENCES.
+    /// </RefExplanation>
 
     [SerializeField] private LayerMask PickupMask;
     [SerializeField] private Camera PlayerCamera;

@@ -911,7 +911,7 @@ MonoBehaviour:
   equippedItem: {fileID: 0}
   player: {fileID: 733593051}
   pickupText: {fileID: 718515223}
-  inventoryFullText: {fileID: 1499721131}
+  fullInventoryText: {fileID: 1499721131}
   itemPosition: {fileID: 1668789400}
   playerCamera: {fileID: 963194227}
   pickupMask:
@@ -1558,7 +1558,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -454}
+  m_AnchoredPosition: {x: 0, y: 480}
   m_SizeDelta: {x: 489.8926, y: 81.655}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1499721133
