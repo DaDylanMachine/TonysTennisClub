@@ -38,7 +38,7 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Make sure pickup text is off.
+        //Make sure the text is off.
         pickupText.SetActive(false);
         fullInventoryText.SetActive(false);
     }

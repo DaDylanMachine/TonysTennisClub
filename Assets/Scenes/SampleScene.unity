@@ -892,10 +892,13 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
+  playerCamera: {fileID: 963194227}
   gravity: -100
-  speed: 25
+  speed: 16
   groundDistance: 0.4
   jumpHeight: 2
+  walkBobSpeed: 8.5
+  walkBobAmount: 0.15
 --- !u!114 &733593055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1163,7 +1166,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.50869, y: 6.1572022, z: 30.722961}
-  m_LocalScale: {x: 8.210303, y: 1, z: 10.67}
+  m_LocalScale: {x: 8.210303, y: 1, z: 22.26}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 448749423}

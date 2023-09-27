@@ -8,6 +8,7 @@ public class TonyRun : MonoBehaviour
     public CharacterController controller;
     public Transform groundCheck;
     public LayerMask groundMask;
+    public Camera playerCamera;
     //Numbered variables that determine the parameters of the character controller.
     public float gravity = -10f;
     public float speed = 25f;
@@ -15,6 +16,17 @@ public class TonyRun : MonoBehaviour
     public float jumpHeight = 2f;
     bool isGrounded;
     Vector3 velocity;
+    //Numbered variables that are used to determine the camera bob.
+    public float walkBobSpeed = 14f;
+    public float walkBobAmount = 0.05f;
+    private float defaultYPos = 0;
+    private float timer;
+
+    //Awake is called the first time the script is run.
+    private void Awake()
+    {
+        defaultYPos = playerCamera.transform.localPosition.y;
+    }
 
     // Update is called once per frame.
     void Update()
@@ -46,6 +58,13 @@ public class TonyRun : MonoBehaviour
         if (isGrounded && Input.GetButtonDown("Jump"))
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+        }
+
+        //If the player is on the ground and the player moves left, right, up or down, add a slight bob to the camera.
+        if (isGrounded && (Mathf.Abs(movement.x) > 0.1f || Mathf.Abs(movement.z) > 0.1f))
+        {
+            timer += Time.deltaTime * walkBobSpeed;
+            playerCamera.transform.localPosition = new Vector3( playerCamera.transform.localPosition.x, defaultYPos + Mathf.Sin(timer) * walkBobAmount, playerCamera.transform.localPosition.z);
         }
     }
 }
