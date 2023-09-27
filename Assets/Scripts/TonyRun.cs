@@ -9,16 +9,24 @@ public class TonyRun : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundMask;
     public Camera playerCamera;
+
     //Numbered variables that determine the parameters of the character controller.
-    public float gravity = -10f;
-    public float speed = 25f;
+    public float gravity = -100f;
+    public float walkSpeed = 16f;
+    public float sprintSpeed = 32f;
     public float groundDistance = 0.4f;
     public float jumpHeight = 2f;
+    public float maxWalkSpeed = 20f;
+    public float maxSprintSpeed = 37f;
     bool isGrounded;
+    bool isSprinting;
     Vector3 velocity;
+
     //Numbered variables that are used to determine the camera bob.
-    public float walkBobSpeed = 14f;
-    public float walkBobAmount = 0.05f;
+    public float walkBobSpeed = 8.5f;
+    public float walkBobAmount = 0.15f;
+    public float sprintBobSpeed = 17f;
+    public float sprintBobAmount = 0.25f;
     private float defaultYPos = 0;
     private float timer;
 
@@ -29,42 +37,52 @@ public class TonyRun : MonoBehaviour
     }
 
     // Update is called once per frame.
-    void Update()
+    private void Update()
     {
         //Returns true if the imaginary sphere under the player is touching something other than the player.
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         
         //Resets velocity if player is on the ground and has velocity.
         if (isGrounded && velocity.y < 0)
-        {
             velocity.y = -2f;
-        }
+
+        //Checks if the player is sprinting by holding down left shift.
+        if (Input.GetKey(KeyCode.LeftShift))
+            isSprinting = true;
+        else
+            isSprinting = false;
 
         //These 2 lines get the input from the keyboard for forward & backwards and left & right.
         float x = Input.GetAxisRaw("Horizontal");
         float z = Input.GetAxisRaw("Vertical");
-
-        /*Originally I had the movement with the format of new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"))
-         * but that only works when you aren't moving the player based on where it's facing. This format makes it that forward is always
-         * forward from where the camera is facing.*/
+        //Calculates the movement based on the input from the player. 
         Vector3 movement = transform.right * x + transform.forward * z;
-        //Moves the player.
-        controller.Move(speed * Time.deltaTime * movement);
+        //Keeps speed inline when moving diagonally.
+        if (x != 0 && z != 0 )
+            movement = movement * .75f;
+        //Moves the player at the walking or sprinting speed depending on if the variable is true or false.
+        if (isSprinting)
+            controller.Move(sprintSpeed * Time.deltaTime * movement);
+        else
+            controller.Move(walkSpeed * Time.deltaTime * movement);
+
         //Constantly applies the value of gravity every frame. The second Time.deltaTime is in accordance with the formula for a free fall.
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
         //Uses a formula to calculate the jump if the player is on the ground and presses the space key.
         if (isGrounded && Input.GetButtonDown("Jump"))
-        {
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
-        }
 
         //If the player is on the ground and the player moves left, right, up or down, add a slight bob to the camera.
         if (isGrounded && (Mathf.Abs(movement.x) > 0.1f || Mathf.Abs(movement.z) > 0.1f))
         {
-            timer += Time.deltaTime * walkBobSpeed;
-            playerCamera.transform.localPosition = new Vector3( playerCamera.transform.localPosition.x, defaultYPos + Mathf.Sin(timer) * walkBobAmount, playerCamera.transform.localPosition.z);
+
+            timer += Time.deltaTime * (isSprinting ? sprintBobSpeed : walkBobSpeed);
+            playerCamera.transform.localPosition = new Vector3(
+                playerCamera.transform.localPosition.x, 
+                defaultYPos + Mathf.Sin(timer) * (isSprinting ? sprintBobAmount : walkBobAmount), 
+                playerCamera.transform.localPosition.z);
         }
     }
 }
