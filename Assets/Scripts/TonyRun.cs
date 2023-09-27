@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TonyRun : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class TonyRun : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundMask;
     public Camera playerCamera;
+    public Slider barOfStamina;
 
     //Numbered variables that determine the parameters of the character controller.
     public float gravity = -100f;
@@ -18,9 +20,11 @@ public class TonyRun : MonoBehaviour
     public float jumpHeight = 2f;
     public float maxWalkSpeed = 20f;
     public float maxSprintSpeed = 37f;
-    bool isGrounded;
-    bool isSprinting;
+    private bool isGrounded;
+    private bool isSprinting;
+    private bool outOfStamina = false;
     Vector3 velocity;
+    Vector3 movement;
 
     //Numbered variables that are used to determine the camera bob.
     public float walkBobSpeed = 8.5f;
@@ -37,17 +41,19 @@ public class TonyRun : MonoBehaviour
     }
 
     // Update is called once per frame.
-    private void Update()
+    public void Update()
     {
         //Returns true if the imaginary sphere under the player is touching something other than the player.
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-        
+        //Pulls the staminaDepleted variable from the stamina script to use here.
+        outOfStamina = barOfStamina.GetComponent<StaminaBar>().staminaDepleted;
+
         //Resets velocity if player is on the ground and has velocity.
         if (isGrounded && velocity.y < 0)
             velocity.y = -2f;
 
         //Checks if the player is sprinting by holding down left shift.
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && outOfStamina == false)
             isSprinting = true;
         else
             isSprinting = false;
@@ -56,16 +62,11 @@ public class TonyRun : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float z = Input.GetAxisRaw("Vertical");
         //Calculates the movement based on the input from the player. 
-        Vector3 movement = transform.right * x + transform.forward * z;
+        movement = transform.right * x + transform.forward * z;
         //Keeps speed inline when moving diagonally.
-        if (x != 0 && z != 0 )
+        if (x != 0 && z != 0)
             movement = movement * .75f;
-        //Moves the player at the walking or sprinting speed depending on if the variable is true or false.
-        if (isSprinting)
-            controller.Move(sprintSpeed * Time.deltaTime * movement);
-        else
-            controller.Move(walkSpeed * Time.deltaTime * movement);
-
+        
         //Constantly applies the value of gravity every frame. The second Time.deltaTime is in accordance with the formula for a free fall.
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
@@ -84,5 +85,20 @@ public class TonyRun : MonoBehaviour
                 defaultYPos + Mathf.Sin(timer) * (isSprinting ? sprintBobAmount : walkBobAmount), 
                 playerCamera.transform.localPosition.z);
         }
+
+    }
+
+    //
+    private void FixedUpdate()
+    {
+        //Moves the player at the walking or sprinting speed depending on if the variable is true or false.
+        if (isSprinting)
+        {
+            controller.Move(sprintSpeed * Time.deltaTime * movement);
+            //Deplete the stamina bar while the user is sprinting.
+            StaminaBar.instance.UseStamina(1);
+        }
+        else
+            controller.Move(walkSpeed * Time.deltaTime * movement);
     }
 }
