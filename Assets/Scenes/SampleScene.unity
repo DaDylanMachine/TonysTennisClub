@@ -894,11 +894,16 @@ MonoBehaviour:
     m_Bits: 64
   playerCamera: {fileID: 963194227}
   gravity: -100
-  speed: 16
+  walkSpeed: 16
+  sprintSpeed: 32
   groundDistance: 0.4
   jumpHeight: 2
+  maxWalkSpeed: 20
+  maxSprintSpeed: 37
   walkBobSpeed: 8.5
   walkBobAmount: 0.15
+  sprintBobSpeed: 17
+  sprintBobAmount: 0.25
 --- !u!114 &733593055
 MonoBehaviour:
   m_ObjectHideFlags: 0
