@@ -9,6 +9,8 @@ public class EnemyController : MonoBehaviour
     public float lookRadius = 10f;
     Transform target;
     NavMeshAgent agent;
+    private NavMeshHit hit;
+    private bool blocked = false;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +29,12 @@ public class EnemyController : MonoBehaviour
         //If the player/target is within the look radius of the enemy/agent, make the enemy walk towards them.
         if (distance <= lookRadius)
         {
-            agent.SetDestination(target.position);
+            blocked = NavMesh.Raycast(transform.position, target.position, out hit, NavMesh.AllAreas);
+
+            if(!blocked)
+            {
+                agent.SetDestination(target.position);
+            }
         }
     }
 
