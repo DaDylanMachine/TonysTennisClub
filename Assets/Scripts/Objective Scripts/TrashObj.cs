@@ -11,14 +11,9 @@ public class TrashObj : MonoBehaviour
     // Float variable that determines the distance of the Raycast.
     public float pickupRange = 10f;
     // Int variable that keeps track of how many pieces of trash have been thrown away.
-    private int trashDeleted = 0;
+    public int trashDeleted = 0;
 
-    // Awake is called the first time the script is run.
-    private void Awake()
-    {
-
-    }
-
+    // Update is called once per frame
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -37,11 +32,6 @@ public class TrashObj : MonoBehaviour
                     trashDeleted++;
                 }               
             }
-            if (trashDeleted == 5)
-            {
-
-            }
-            Debug.Log(trashDeleted);
         }
     }
 }

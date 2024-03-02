@@ -2233,6 +2233,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trash Can
       objectReference: {fileID: 0}
+    - target: {fileID: 3842117544926673637, guid: fef1a301802be0d4499cc1f67cf4d21c, type: 3}
+      propertyPath: m_TagString
+      value: TrashCan
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2311,6 +2315,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba679da318a94944a981644cc0776824, type: 3}
+--- !u!114 &2006587081938554674 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8517029209210301246, guid: ba679da318a94944a981644cc0776824, type: 3}
+  m_PrefabInstance: {fileID: 2006587081938554673}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7c2418e696bd2c49afb4183a86e0409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2098910310052388357
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2321,7 +2336,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1248547425738061611, guid: b7aafd23285033c42af0b67502c0bb20, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000030517578
+      value: -0.000061035156
       objectReference: {fileID: 0}
     - target: {fileID: 1257545148883494958, guid: b7aafd23285033c42af0b67502c0bb20, type: 3}
       propertyPath: m_Name
@@ -2796,6 +2811,10 @@ PrefabInstance:
       propertyPath: barOfStamina
       value: 
       objectReference: {fileID: 2076876717}
+    - target: {fileID: 6842021538051650857, guid: ef1de59f728a2614db35a90800c80d61, type: 3}
+      propertyPath: trashCan
+      value: 
+      objectReference: {fileID: 2006587081938554674}
     - target: {fileID: 6842021538051650857, guid: ef1de59f728a2614db35a90800c80d61, type: 3}
       propertyPath: pickupText
       value: 

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5887181402027439337}
   m_Layer: 5
   m_Name: Label
-  m_TagString: Untagged
+  m_TagString: TrashText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Throw Away 5 Pieces of Trash
+  m_Text: Throw Away 5 Pieces of Trash (0/5)
 --- !u!1 &3344944707697834614
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 2775771330952034052}
   m_Layer: 5
   m_Name: Trash
-  m_TagString: Untagged
+  m_TagString: TrashToggle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

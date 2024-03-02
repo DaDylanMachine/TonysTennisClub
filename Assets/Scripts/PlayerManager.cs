@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -13,7 +14,10 @@ public class PlayerManager : MonoBehaviour
     public GameObject itemPosition;
     public GameObject checkList;
     public GameObject uiChecklist;
+    public TrashObj trashCan;
+    public Toggle trashObjToggle;
     public Camera playerCamera;
+    public Text trashObjText;
     // LayerMask variable to denote what layer the Raycast is looking for.
     public LayerMask pickupMask;
     // Float variable that determines the distance of the Raycast.
@@ -29,8 +33,12 @@ public class PlayerManager : MonoBehaviour
         // Make sure the text is off.
         pickupText.SetActive(false);
         fullInventoryText.SetActive(false);
+        // References the variables to Components to use later in the script. Must be done here since the GameObject spawns after startup.
+        trashObjToggle = GameObject.FindGameObjectWithTag("TrashToggle").GetComponent<Toggle>();
+        trashObjText = GameObject.FindGameObjectWithTag("TrashText").GetComponent<Text>();
     }
 
+    // Update is called once per frame
     private void Update()
     {
         // If there are under 3 items on the player, the inventory isnt full. Otherwise, it is full.
@@ -38,7 +46,8 @@ public class PlayerManager : MonoBehaviour
             fullInventory = false;
         else
             fullInventory = true;
-        //
+        
+        // Equips or unequips the checklist 
         if (Input.GetKeyDown(KeyCode.F))
         {
             if (checkList.activeSelf)
@@ -50,13 +59,15 @@ public class PlayerManager : MonoBehaviour
             else
             {
                 checkList.SetActive(true);
-                //run function that checks if task objective has been completed
                 uiChecklist.SetActive(true);
                 itemPosition.SetActive(false);
+                // Runs the check to see if any objectives have been completed while the checklist was put away.
+                UpdateObjectives();
             }
 
         }
         
+        // Ensures the following code only runs if the checklist is put away.
         if (!checkList.activeSelf)
         {
             // Runs the Drop function if "Q" is pressed and an item is equipped.
@@ -144,16 +155,27 @@ public class PlayerManager : MonoBehaviour
             itemPosition.GetComponent<ItemSwap>().SelectItem();
     }
 
+    // Function to check if the objective for each task has been met.
+    void UpdateObjectives()
+    {
+        // Update for the trash objective.
+        // Checks how much trash has been thrown away and updates the label every time one is thrown away. If it reaches 5, mark the task as complete.
+        switch (trashCan.trashDeleted)
+        {
+            case 5:
+                trashObjToggle.isOn = true;
+                goto default;
+            default:
+                trashObjText.text = "Throw Away 5 Pieces of Trash (" + trashCan.trashDeleted.ToString() + "/5)";
+                break;
+        }
+    }
+
     // Coroutine that displays text that indicates the inventory is full and the after some time, hides the text.
     IEnumerator DisplayFullInventory()
     {
         fullInventoryText.SetActive(true);
         yield return new WaitForSecondsRealtime(2);
         fullInventoryText.SetActive(false);
-    }
-
-    void CheckObjectives()
-    {
-
     }
 }
