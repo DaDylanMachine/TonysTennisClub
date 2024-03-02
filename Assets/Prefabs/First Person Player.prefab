@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6842021538051650857}
   m_Layer: 7
   m_Name: First Person Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,6 +82,7 @@ MonoBehaviour:
     m_Bits: 64
   playerCamera: {fileID: 2899808909806240252}
   barOfStamina: {fileID: 0}
+  staminaBar: {fileID: 0}
   gravity: -100
   walkSpeed: 16
   sprintSpeed: 32
@@ -385,6 +386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedItem: 0
+  playerManager: {fileID: 6842021538051650857}
 --- !u!1 &8515004058737449271
 GameObject:
   m_ObjectHideFlags: 0

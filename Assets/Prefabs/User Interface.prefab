@@ -723,7 +723,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 8668126962993033902}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -762,7 +762,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -20, y: 152}
+  m_AnchoredPosition: {x: -41, y: 169}
   m_SizeDelta: {x: 489.8926, y: 81.655}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2575724222186573205
@@ -950,11 +950,11 @@ GameObject:
   - component: {fileID: 7785180059401310033}
   m_Layer: 5
   m_Name: Deposit Trash
-  m_TagString: Untagged
+  m_TagString: TrashText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8132862765091037396
 RectTransform:
   m_ObjectHideFlags: 0
