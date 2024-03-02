@@ -16,12 +16,6 @@ public class PhysicsPickup : MonoBehaviour
     [SerializeField] private float PickupRange;
     private Rigidbody CurrentObject;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
