@@ -1,0 +1,47 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class TrashObj : MonoBehaviour
+{
+    // GameObject and Component variables to edit them within the script.
+    public GameObject trashCan;
+    public Camera playerCamera;
+    public PlayerManager playerManager;
+    // Float variable that determines the distance of the Raycast.
+    public float pickupRange = 10f;
+    // Int variable that keeps track of how many pieces of trash have been thrown away.
+    private int trashDeleted = 0;
+
+    // Awake is called the first time the script is run.
+    private void Awake()
+    {
+
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            // Raycast is made.
+            Ray cameraRay = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.5f));
+            // Check if the raycast hits a colldier.
+            if (Physics.Raycast(cameraRay, out RaycastHit hitInfo, pickupRange))
+            {
+                // Checks if the raycast is hitting the trash can GameObject and if the item they are holding is trash.
+                if (hitInfo.collider.tag == "TrashCan" && playerManager.equippedItem.CompareTag("Trash"))
+                {
+                    // If it is, destroy the trash item, denote that there is no equipped item, and track that another piece of trash has been deleted.
+                    Destroy(playerManager.equippedItem);
+                    playerManager.equippedItem = null;
+                    trashDeleted++;
+                }               
+            }
+            if (trashDeleted == 5)
+            {
+
+            }
+            Debug.Log(trashDeleted);
+        }
+    }
+}

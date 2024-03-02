@@ -6,6 +6,9 @@ TagManager:
   tags:
   - CanGrab
   - Map Section
+  - Trash
+  - TrashText
+  - TrashCan
   layers:
   - Default
   - TransparentFX
