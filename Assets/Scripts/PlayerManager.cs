@@ -153,6 +153,11 @@ public class PlayerManager : MonoBehaviour
         }           
         else
             itemPosition.GetComponent<ItemSwap>().SelectItem();
+        
+        if (itemPosition.GetComponent<ItemSwap>().selectedItem > itemPosition.GetComponent<Transform>().childCount)
+        {
+            itemPosition.GetComponent<ItemSwap>().selectedItem--;
+        }
     }
 
     // Function to check if the objective for each task has been met.

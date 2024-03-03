@@ -71,6 +71,13 @@ public class ItemSwap : MonoBehaviour
     {
         // Iterator variable.
         int i = 0;
+        
+        // Checks to see if the selectedItem variable is higher than the available indexes.
+        if (selectedItem > this.GetComponent<Transform>().childCount - 1)
+        {
+            selectedItem--;
+        }
+
         // Iterates through every item the player has in their inventory and checks which one should be equipped.
         foreach(Transform item in transform)
         {
@@ -82,8 +89,7 @@ public class ItemSwap : MonoBehaviour
                 playerManager.equippedItem = item.gameObject;
             }
             else
-                item.gameObject.SetActive(false);
-            
+                item.gameObject.SetActive(false);         
             i++;
         }
     }
