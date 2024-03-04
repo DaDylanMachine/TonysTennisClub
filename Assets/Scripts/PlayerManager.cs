@@ -70,10 +70,10 @@ public class PlayerManager : MonoBehaviour
         // Ensures the following code only runs if the checklist is put away.
         if (!checkList.activeSelf)
         {
-            // Runs the Drop function if "Q" is pressed and an item is equipped.
+            // Runs the GetRidOfItem function if "Q" is pressed and an item is equipped.
             if (Input.GetKeyDown(KeyCode.Q) && itemEquipped == true)
             {
-                Drop();
+                GetRidOfItem();
             }
 
             // Send a Raycast and check if that Raycast hits an item if "E" is pressed.
@@ -105,7 +105,7 @@ public class PlayerManager : MonoBehaviour
         // I've been using this just for debug purposes.
         if (Input.GetKey(KeyCode.T))
         {
-            Debug.Log(fullInventory);
+            
         }
     }
 
@@ -136,7 +136,7 @@ public class PlayerManager : MonoBehaviour
     }
 
     // Function for dropping an item.
-    void Drop()
+    public void GetRidOfItem()
     {
 
         // Sets the equipped item back to a pickupable state.
@@ -146,6 +146,11 @@ public class PlayerManager : MonoBehaviour
         // Removes the equipped item under EquipPosition GameObject.
         equippedItem.transform.SetParent(null);
 
+        // Destroy the object if the item is trash.
+        if (equippedItem.CompareTag("Trash"))
+            Destroy(equippedItem);
+
+        // Check to see if the dropped item was the last item in the inventory, if not, swap to another item
         if (itemPosition.GetComponent<Transform>().childCount == 0)
         {
             itemEquipped = false;
@@ -153,11 +158,6 @@ public class PlayerManager : MonoBehaviour
         }           
         else
             itemPosition.GetComponent<ItemSwap>().SelectItem();
-        
-        if (itemPosition.GetComponent<ItemSwap>().selectedItem > itemPosition.GetComponent<Transform>().childCount)
-        {
-            itemPosition.GetComponent<ItemSwap>().selectedItem--;
-        }
     }
 
     // Function to check if the objective for each task has been met.

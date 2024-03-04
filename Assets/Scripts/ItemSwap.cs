@@ -89,8 +89,12 @@ public class ItemSwap : MonoBehaviour
                 playerManager.equippedItem = item.gameObject;
             }
             else
-                item.gameObject.SetActive(false);         
+            {
+                item.gameObject.SetActive(false);
+            }
+
             i++;
         }
     }
+
 }
