@@ -26,11 +26,14 @@ public class TrashObj : MonoBehaviour
             if (Physics.Raycast(cameraRay, out RaycastHit hitInfo, pickupRange))
             {
                 // Checks if the raycast is hitting the trash can GameObject and if the item they are holding is trash.
-                if (hitInfo.collider.tag == "TrashCan" && playerManager.equippedItem.CompareTag("Trash"))
+                if (hitInfo.collider.tag == "TrashCan" && playerManager.equippedItem)
                 {
-                    // If it is, destroy the trash item, denote that there is no equipped item, and track that another piece of trash has been deleted.
-                    playerManager.GetRidOfItem();
-                    trashDeleted++;
+                    if (playerManager.equippedItem.CompareTag("Trash"))
+                    {
+                        // If it is, destroy the trash item, denote that there is no equipped item, and track that another piece of trash has been deleted.
+                        playerManager.GetRidOfItem();
+                        trashDeleted++;
+                    }
                 }               
             }
         }

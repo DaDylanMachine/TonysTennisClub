@@ -123,7 +123,7 @@ public class PlayerManager : MonoBehaviour
 
         // Sets the item to the equipped state.
         item.GetComponent<Rigidbody>().isKinematic = true;
-        item.GetComponent<BoxCollider>().enabled = false;
+        item.GetComponent<Collider>().enabled = false;
 
         // Places the item as a child of EquipPosition.
         item.transform.SetParent(itemPosition.GetComponent<Transform>());

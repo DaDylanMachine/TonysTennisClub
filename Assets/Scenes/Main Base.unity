@@ -13093,7 +13093,7 @@ GameObject:
   - component: {fileID: 918119187}
   m_Layer: 0
   m_Name: Water Bucket
-  m_TagString: Untagged
+  m_TagString: Trash
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13222,16 +13222,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 918119181}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 717bc31eed3e2434baffe5aa3f971494, type: 3}
+  m_Script: {fileID: 11500000, guid: 89d4293c220ee2d4cbd9e98375c0fd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waterBucket: {fileID: 918119181}
+  checkList: {fileID: 850815729}
+  pickupText: {fileID: 140415805}
   playerCamera: {fileID: 850815731}
-  playerManager: {fileID: 850815730}
-  itemSwap: {fileID: 0}
-  equipChild: {fileID: 0}
-  pickupRange: 10
-  trashDeleted: 0
+  rayRange: {fileID: 850815730}
 --- !u!1 &926158107
 GameObject:
   m_ObjectHideFlags: 0

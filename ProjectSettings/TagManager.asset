@@ -10,6 +10,9 @@ TagManager:
   - TrashText
   - TrashCan
   - TrashToggle
+  - Bucket
+  - WaterCooler
+  - CoolerText
   layers:
   - Default
   - TransparentFX
