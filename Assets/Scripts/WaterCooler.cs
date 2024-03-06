@@ -7,13 +7,13 @@ public class WaterCooler : MonoBehaviour
     public Camera playerCamera;
     public PlayerManager rayRange;
     public GameObject checkList;
-    [SerializeField] private GameObject depositText;
+    [SerializeField] private GameObject fillText;
 
     private void Awake()
     {
-        depositText = GameObject.FindGameObjectWithTag("CoolerText");
+        fillText = GameObject.FindGameObjectWithTag("CoolerText");
         // Sets the text to inactive since the above find method cannot find GameObjects that are inactive.
-        depositText.SetActive(false);
+        fillText.SetActive(false);
     }
 
     // Function that displays that water can be filled when they hover over the water cooler.
@@ -27,7 +27,7 @@ public class WaterCooler : MonoBehaviour
             // If the item is within range, it activates the pickup text.
             if (Physics.Raycast(cameraRay, rayRange.pickupRange))
             {
-                depositText.SetActive(true);
+                fillText.SetActive(true);
             }
         }
     }
@@ -35,6 +35,6 @@ public class WaterCooler : MonoBehaviour
     //Function that disables the deposit ttrash text when the mouse is not hovering over the can.
     public void OnMouseExit()
     {
-        depositText.SetActive(false);
+        fillText.SetActive(false);
     }
 }

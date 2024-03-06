@@ -73,7 +73,7 @@ public class PlayerManager : MonoBehaviour
             // Runs the GetRidOfItem function if "Q" is pressed and an item is equipped.
             if (Input.GetKeyDown(KeyCode.Q) && itemEquipped == true)
             {
-                GetRidOfItem();
+                dropItem();
             }
 
             // Send a Raycast and check if that Raycast hits an item if "E" is pressed.
@@ -140,15 +140,15 @@ public class PlayerManager : MonoBehaviour
     {
 
         // Sets the equipped item back to a pickupable state.
-        equippedItem.GetComponent<Rigidbody>().isKinematic = false;
-        equippedItem.GetComponent<BoxCollider>().enabled = true;
+        //equippedItem.GetComponent<Rigidbody>().isKinematic = false;
+        //equippedItem.GetComponent<Collider>().enabled = true;
 
         // Removes the equipped item under EquipPosition GameObject.
         equippedItem.transform.SetParent(null);
 
         // Destroy the object if the item is trash.
-        if (equippedItem.CompareTag("Trash"))
-            Destroy(equippedItem);
+        //if (equippedItem.CompareTag("Trash"))
+        Destroy(equippedItem);
 
         // Check to see if the dropped item was the last item in the inventory, if not, swap to another item
         if (itemPosition.GetComponent<Transform>().childCount == 0)
@@ -156,6 +156,25 @@ public class PlayerManager : MonoBehaviour
             itemEquipped = false;
             equippedItem = null;
         }           
+        else
+            itemPosition.GetComponent<ItemSwap>().SelectItem();
+    }
+    public void dropItem() //3/5/2024 Created dropItem script just for the Q button
+    {
+
+        // Sets the equipped item back to a pickupable state.
+        equippedItem.GetComponent<Rigidbody>().isKinematic = false;
+        equippedItem.GetComponent<Collider>().enabled = true;
+
+        // Removes the equipped item under EquipPosition GameObject.
+        equippedItem.transform.SetParent(null);
+
+        // Check to see if the dropped item was the last item in the inventory, if not, swap to another item
+        if (itemPosition.GetComponent<Transform>().childCount == 0)
+        {
+            itemEquipped = false;
+            equippedItem = null;
+        }
         else
             itemPosition.GetComponent<ItemSwap>().SelectItem();
     }
