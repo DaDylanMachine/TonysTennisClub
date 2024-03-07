@@ -136,8 +136,8 @@ public class PlayerManager : MonoBehaviour
         // Denotes that an item is equipped.
         itemEquipped = true;
 
-        // Determines which item is currently equipped and puts it into a variable.
-        equippedItem = itemPosition.transform.GetChild(itemPosition.GetComponent<ItemSwap>().selectedItem).gameObject;
+        // Determines which item is currently equipped and puts it into a variable. 3/6/2024 Having bug issues where occasionally pick up will not be equipped
+        equippedItem = itemPosition.transform.GetChild(itemPosition.GetComponent<ItemSwap>().selectedItem).gameObject; 
     }
 
     // Function for dropping an item.

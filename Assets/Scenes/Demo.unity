@@ -1462,6 +1462,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b74697fed88fc343ad96e3ba26be5fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &747889949 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3066416640776465344, guid: ef1de59f728a2614db35a90800c80d61, type: 3}
+  m_PrefabInstance: {fileID: 6559395820789959693}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27792d9f1d987f942a20f0de54fe0ce1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &838699229 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3842117544926673637, guid: fef1a301802be0d4499cc1f67cf4d21c, type: 3}
@@ -1654,9 +1665,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 963194227}
   playerManager: {fileID: 733593053}
+  playerSpeed: {fileID: 747889949}
   pickupRange: 10
   bucketFill: 0
+  bucketFillMax: 25
   bucketFillSpeed: 0.004
+  speedDiff: 0
 --- !u!1 &1060716316 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6951727424016229644, guid: b7aafd23285033c42af0b67502c0bb20, type: 3}

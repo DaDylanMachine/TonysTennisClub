@@ -7,24 +7,42 @@ public class WaterBucket : MonoBehaviour
     //public GameObject waterBucket;
     public Camera playerCamera;
     public PlayerManager playerManager;
+    //public TonyRun playerSpeed;
     // Float variable that determines the distance of the Raycast.
     public float pickupRange = 10f;
     //Float for bucket item
     public float bucketFill = 0f;
+    public float bucketFillMax = 25f;
     //Float value for how fast to fill
     public float bucketFillSpeed = 0f;
+    //public float speedDiff = 1;
 
 
     // Update is called once per frame
     private void Update()
     {
+
         if (bucketFill < 0)
         {
             bucketFill = 0;
-        }else if (bucketFill > 25)
+        }else if (bucketFill > bucketFillMax)
         {
-            bucketFill = 25;
+            bucketFill = bucketFillMax;
         }
+
+        ////Speed Change on bucket fill
+        //if (/*Bucket is in inventory*/)
+        //{
+        //    speedDiff = (1 - (bucketFill / bucketFillMax) + .6f);
+        //    if (speedDiff > 1)
+        //        speedDiff = 1;
+        //    playerSpeed.walkSpeed = playerSpeed.defaultWalkSpeed * speedDiff;
+        //    playerSpeed.sprintSpeed = playerSpeed.defaultSprintSpeed * speedDiff;
+        //} else //not in inventory
+        //{
+        //    playerSpeed.walkSpeed = playerSpeed.defaultWalkSpeed;
+        //    playerSpeed.sprintSpeed = playerSpeed.defaultSprintSpeed;
+        //}
 
         if (Input.GetKey(KeyCode.E))
         {
@@ -39,7 +57,7 @@ public class WaterBucket : MonoBehaviour
                     if (playerManager.equippedItem.CompareTag("Bucket"))
                     {
                         // If it is, increase bucketFill by fill amount
-                        if (bucketFill < 25)
+                        if (bucketFill < bucketFillMax)
                             bucketFill += bucketFillSpeed;
                     }
                 }

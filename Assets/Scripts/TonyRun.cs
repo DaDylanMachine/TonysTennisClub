@@ -15,7 +15,9 @@ public class TonyRun : MonoBehaviour
 
     // Numbered variables that determine the parameters of the character controller.
     public float gravity = -100f;
+    public float defaultWalkSpeed = 16f;
     public float walkSpeed = 16f;
+    public float defaultSprintSpeed = 32f;
     public float sprintSpeed = 32f;
     public float groundDistance = 0.4f;
     public float jumpHeight = 2f;
