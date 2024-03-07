@@ -447,6 +447,11 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &104073380 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3842117544926673637, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+  m_PrefabInstance: {fileID: 1169213080}
+  m_PrefabAsset: {fileID: 0}
 --- !u!33 &104691629
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -941,6 +946,10 @@ Transform:
   - {fileID: 838699233}
   - {fileID: 1100090180}
   - {fileID: 2094867285}
+  - {fileID: 1813546642}
+  - {fileID: 1169213081}
+  - {fileID: 696616120}
+  - {fileID: 1493439662}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &506006027
@@ -1249,6 +1258,100 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1679115059843046611, guid: b7aafd23285033c42af0b67502c0bb20, type: 3}
   m_PrefabInstance: {fileID: 2098910310052388357}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &696616119
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 448749423}
+    m_Modifications:
+    - target: {fileID: -8074759595233642174, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: fillText
+      value: 
+      objectReference: {fileID: 1175818041}
+    - target: {fileID: -8074759595233642174, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: rayRange
+      value: 
+      objectReference: {fileID: 733593053}
+    - target: {fileID: -8074759595233642174, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: checkList
+      value: 
+      objectReference: {fileID: 990214038}
+    - target: {fileID: -8074759595233642174, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: depositText
+      value: 
+      objectReference: {fileID: 1175818041}
+    - target: {fileID: -8074759595233642174, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: waterCooler
+      value: 
+      objectReference: {fileID: 1123722546}
+    - target: {fileID: -8074759595233642174, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 963194227}
+    - target: {fileID: -8074759595233642174, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: playerManager
+      value: 
+      objectReference: {fileID: 733593053}
+    - target: {fileID: 1070116404652443722, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -22.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -17.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3842117544926673637, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_Name
+      value: Water Cooler (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3842117544926673637, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_TagString
+      value: WaterCooler
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+--- !u!4 &696616120 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1070116404652443722, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+  m_PrefabInstance: {fileID: 696616119}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1398,6 +1501,7 @@ GameObject:
   - component: {fileID: 995831004}
   - component: {fileID: 995831003}
   - component: {fileID: 995831002}
+  - component: {fileID: 995831008}
   m_Layer: 9
   m_Name: Water Bucket
   m_TagString: Bucket
@@ -1536,11 +1640,164 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &995831008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995831001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c2689305fff13740a5694c8192deee1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 963194227}
+  playerManager: {fileID: 733593053}
+  pickupRange: 10
+  bucketFill: 0
+  bucketFillSpeed: 0.004
 --- !u!1 &1060716316 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6951727424016229644, guid: b7aafd23285033c42af0b67502c0bb20, type: 3}
   m_PrefabInstance: {fileID: 2098910310052388357}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1094503897
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1094503898}
+  - component: {fileID: 1094503900}
+  - component: {fileID: 1094503899}
+  m_Layer: 5
+  m_Name: Fill Bucket
+  m_TagString: FaucetText
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1094503898
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094503897}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 661082963}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 7.9639964, y: -33.982677}
+  m_SizeDelta: {x: 162.1225, y: 26.1654}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1094503899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094503897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 'Fill Bucket (Hold E)
+
+'
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 18
+  m_fontSizeBase: 18
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: -0.6175537, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1094503900
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094503897}
+  m_CullTransparentMesh: 1
 --- !u!1 &1100090176
 GameObject:
   m_ObjectHideFlags: 0
@@ -1647,6 +1904,105 @@ Transform:
   m_Children: []
   m_Father: {fileID: 448749423}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1123722546 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3842117544926673637, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+  m_PrefabInstance: {fileID: 696616119}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1169213080
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 448749423}
+    m_Modifications:
+    - target: {fileID: -8074759595233642174, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: fillText
+      value: 
+      objectReference: {fileID: 1175818041}
+    - target: {fileID: -8074759595233642174, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: rayRange
+      value: 
+      objectReference: {fileID: 733593053}
+    - target: {fileID: -8074759595233642174, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: checkList
+      value: 
+      objectReference: {fileID: 990214038}
+    - target: {fileID: -8074759595233642174, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: depositText
+      value: 
+      objectReference: {fileID: 1175818041}
+    - target: {fileID: -8074759595233642174, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: waterCooler
+      value: 
+      objectReference: {fileID: 104073380}
+    - target: {fileID: -8074759595233642174, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 963194227}
+    - target: {fileID: -8074759595233642174, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: playerManager
+      value: 
+      objectReference: {fileID: 733593053}
+    - target: {fileID: 1070116404652443722, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -27.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -17.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3842117544926673637, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_Name
+      value: Water Cooler (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3842117544926673637, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_TagString
+      value: WaterCooler
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+--- !u!4 &1169213081 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1070116404652443722, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+  m_PrefabInstance: {fileID: 1169213080}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1175818041
 GameObject:
   m_ObjectHideFlags: 0
@@ -1990,6 +2346,102 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4000012437333344, guid: 2ee1e7e56b796c64b8e7a7245fca263d, type: 3}
   m_PrefabInstance: {fileID: 506006027}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1420466062 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3842117544926673637, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+  m_PrefabInstance: {fileID: 1813546641}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1493439661
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 448749423}
+    m_Modifications:
+    - target: {fileID: 1070116404652443722, guid: 67bd31e328a2cb34a800436f84e4e8a7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -17.59149
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: 67bd31e328a2cb34a800436f84e4e8a7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: 67bd31e328a2cb34a800436f84e4e8a7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: 67bd31e328a2cb34a800436f84e4e8a7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: 67bd31e328a2cb34a800436f84e4e8a7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: 67bd31e328a2cb34a800436f84e4e8a7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: 67bd31e328a2cb34a800436f84e4e8a7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: 67bd31e328a2cb34a800436f84e4e8a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: 67bd31e328a2cb34a800436f84e4e8a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: 67bd31e328a2cb34a800436f84e4e8a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3842117544926673637, guid: 67bd31e328a2cb34a800436f84e4e8a7, type: 3}
+      propertyPath: m_Name
+      value: Water Faucet
+      objectReference: {fileID: 0}
+    - target: {fileID: 3842117544926673637, guid: 67bd31e328a2cb34a800436f84e4e8a7, type: 3}
+      propertyPath: m_TagString
+      value: WaterFaucet
+      objectReference: {fileID: 0}
+    - target: {fileID: 7983933891141745526, guid: 67bd31e328a2cb34a800436f84e4e8a7, type: 3}
+      propertyPath: bucket
+      value: 
+      objectReference: {fileID: 995831001}
+    - target: {fileID: 7983933891141745526, guid: 67bd31e328a2cb34a800436f84e4e8a7, type: 3}
+      propertyPath: fillText
+      value: 
+      objectReference: {fileID: 1493439663}
+    - target: {fileID: 7983933891141745526, guid: 67bd31e328a2cb34a800436f84e4e8a7, type: 3}
+      propertyPath: rayRange
+      value: 
+      objectReference: {fileID: 733593053}
+    - target: {fileID: 7983933891141745526, guid: 67bd31e328a2cb34a800436f84e4e8a7, type: 3}
+      propertyPath: checkList
+      value: 
+      objectReference: {fileID: 990214038}
+    - target: {fileID: 7983933891141745526, guid: 67bd31e328a2cb34a800436f84e4e8a7, type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 963194227}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 67bd31e328a2cb34a800436f84e4e8a7, type: 3}
+--- !u!4 &1493439662 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1070116404652443722, guid: 67bd31e328a2cb34a800436f84e4e8a7, type: 3}
+  m_PrefabInstance: {fileID: 1493439661}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1493439663 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3842117544926673637, guid: 67bd31e328a2cb34a800436f84e4e8a7, type: 3}
+  m_PrefabInstance: {fileID: 1493439661}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1499721131 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4197436682252495932, guid: b7aafd23285033c42af0b67502c0bb20, type: 3}
@@ -2004,6 +2456,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 448749423}
     m_Modifications:
     - target: {fileID: -8074759595233642174, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: fillText
+      value: 
+      objectReference: {fileID: 1175818041}
+    - target: {fileID: -8074759595233642174, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
       propertyPath: rayRange
       value: 
       objectReference: {fileID: 733593053}
@@ -2016,9 +2472,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1175818041}
     - target: {fileID: -8074759595233642174, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: waterCooler
+      value: 
+      objectReference: {fileID: 2094867284}
+    - target: {fileID: -8074759595233642174, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 963194227}
+    - target: {fileID: -8074759595233642174, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: playerManager
+      value: 
+      objectReference: {fileID: 733593053}
     - target: {fileID: 1070116404652443722, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -17.59149
@@ -2184,6 +2648,100 @@ MonoBehaviour:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5771608318033822779, guid: ef1de59f728a2614db35a90800c80d61, type: 3}
   m_PrefabInstance: {fileID: 6559395820789959693}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1813546641
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 448749423}
+    m_Modifications:
+    - target: {fileID: -8074759595233642174, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: fillText
+      value: 
+      objectReference: {fileID: 1175818041}
+    - target: {fileID: -8074759595233642174, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: rayRange
+      value: 
+      objectReference: {fileID: 733593053}
+    - target: {fileID: -8074759595233642174, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: checkList
+      value: 
+      objectReference: {fileID: 990214038}
+    - target: {fileID: -8074759595233642174, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: depositText
+      value: 
+      objectReference: {fileID: 1175818041}
+    - target: {fileID: -8074759595233642174, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: waterCooler
+      value: 
+      objectReference: {fileID: 1420466062}
+    - target: {fileID: -8074759595233642174, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 963194227}
+    - target: {fileID: -8074759595233642174, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: playerManager
+      value: 
+      objectReference: {fileID: 733593053}
+    - target: {fileID: 1070116404652443722, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -32.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -17.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070116404652443722, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3842117544926673637, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_Name
+      value: Water Cooler (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3842117544926673637, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+      propertyPath: m_TagString
+      value: WaterCooler
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+--- !u!4 &1813546642 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1070116404652443722, guid: a15e58fda758a444ba8960bdaa01045b, type: 3}
+  m_PrefabInstance: {fileID: 1813546641}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1821765077 stripped
 GameObject:
@@ -2712,6 +3270,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 963194227}
     - target: {fileID: 7298369865616821337, guid: ba679da318a94944a981644cc0776824, type: 3}
+      propertyPath: waterCooler1
+      value: 
+      objectReference: {fileID: 2094867284}
+    - target: {fileID: 7298369865616821337, guid: ba679da318a94944a981644cc0776824, type: 3}
+      propertyPath: waterCooler2
+      value: 
+      objectReference: {fileID: 1420466062}
+    - target: {fileID: 7298369865616821337, guid: ba679da318a94944a981644cc0776824, type: 3}
+      propertyPath: waterCooler3
+      value: 
+      objectReference: {fileID: 104073380}
+    - target: {fileID: 7298369865616821337, guid: ba679da318a94944a981644cc0776824, type: 3}
+      propertyPath: waterCooler4
+      value: 
+      objectReference: {fileID: 1123722546}
+    - target: {fileID: 7298369865616821337, guid: ba679da318a94944a981644cc0776824, type: 3}
       propertyPath: playerManager
       value: 
       objectReference: {fileID: 733593053}
@@ -2749,6 +3323,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7c2418e696bd2c49afb4183a86e0409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2006587081938554676 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7298369865616821337, guid: ba679da318a94944a981644cc0776824, type: 3}
+  m_PrefabInstance: {fileID: 2006587081938554673}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b13099502d8f340b3464f9fd59ae69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &2098910310052388357
@@ -2873,6 +3458,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1679115059843046611, guid: b7aafd23285033c42af0b67502c0bb20, type: 3}
       insertIndex: 3
       addedObject: {fileID: 1175818042}
+    - targetCorrespondingSourceObject: {fileID: 1679115059843046611, guid: b7aafd23285033c42af0b67502c0bb20, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 1094503898}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7aafd23285033c42af0b67502c0bb20, type: 3}
 --- !u!95 &5061115328496575436
@@ -3255,6 +3843,10 @@ PrefabInstance:
       propertyPath: uiChecklist
       value: 
       objectReference: {fileID: 1347719415}
+    - target: {fileID: 6842021538051650857, guid: ef1de59f728a2614db35a90800c80d61, type: 3}
+      propertyPath: waterCooler
+      value: 
+      objectReference: {fileID: 2006587081938554676}
     - target: {fileID: 6842021538051650857, guid: ef1de59f728a2614db35a90800c80d61, type: 3}
       propertyPath: fullInventoryText
       value: 

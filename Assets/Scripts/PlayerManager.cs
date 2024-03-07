@@ -15,9 +15,12 @@ public class PlayerManager : MonoBehaviour
     public GameObject checkList;
     public GameObject uiChecklist;
     public TrashObj trashCan;
+    public WaterCoolerObj waterCooler;
     public Toggle trashObjToggle;
+    public Toggle waterObjToggle;
     public Camera playerCamera;
     public Text trashObjText;
+    public Text waterObjText;
     // LayerMask variable to denote what layer the Raycast is looking for.
     public LayerMask pickupMask;
     // Float variable that determines the distance of the Raycast.
@@ -36,6 +39,8 @@ public class PlayerManager : MonoBehaviour
         // References the variables to Components to use later in the script. Must be done here since the GameObject spawns after startup.
         trashObjToggle = GameObject.FindGameObjectWithTag("TrashToggle").GetComponent<Toggle>();
         trashObjText = GameObject.FindGameObjectWithTag("TrashText").GetComponent<Text>();
+        waterObjToggle = GameObject.FindGameObjectWithTag("WaterToggle").GetComponent<Toggle>();
+        waterObjText = GameObject.FindGameObjectWithTag("WaterText").GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -193,6 +198,20 @@ public class PlayerManager : MonoBehaviour
                 trashObjText.text = "Throw Away 5 Pieces of Trash (" + trashCan.trashDeleted.ToString() + "/5)";
                 break;
         }
+
+        switch(waterCooler.waterFilled)
+        {
+            case 4:
+                waterObjToggle.isOn = true;
+                goto default;
+            default:
+                waterObjText.text = "Fill Up Water Coolers (" + waterCooler.waterFilled.ToString() + "/4)";
+                break;
+                
+
+        }
+
+
     }
 
     // Coroutine that displays text that indicates the inventory is full and the after some time, hides the text.

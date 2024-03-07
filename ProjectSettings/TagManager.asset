@@ -13,6 +13,10 @@ TagManager:
   - Bucket
   - WaterCooler
   - CoolerText
+  - FaucetText
+  - WaterFaucet
+  - WaterToggle
+  - WaterText
   layers:
   - Default
   - TransparentFX

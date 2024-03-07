@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5887181402027439337}
   m_Layer: 5
   m_Name: Label
-  m_TagString: Untagged
+  m_TagString: WaterText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Fill Up Water Coolers
+  m_Text: 'Fill Up Water Coolers (0/4)
 
 '
 --- !u!1 &3344944707697834614
@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 2775771330952034052}
   m_Layer: 5
   m_Name: Water Coolers
-  m_TagString: Untagged
+  m_TagString: WaterToggle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

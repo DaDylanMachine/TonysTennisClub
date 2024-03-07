@@ -1,39 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class WaterCoolerObj : MonoBehaviour
 {
     // GameObject and Component variables to edit them within the script.
-    public GameObject waterCooler;
+    public GameObject waterCooler1;
+    public GameObject waterCooler2;
+    public GameObject waterCooler3;
+    public GameObject waterCooler4;
     public Camera playerCamera;
     public PlayerManager playerManager;
     public ItemSwap itemSwap;
     public Transform equipChild;
     // Float variable that determines the distance of the Raycast.
     public float pickupRange = 10f;
-    // Int variable that keeps track of how many pieces of trash have been thrown away.
+    // Int variable that keeps track of how much the water is filled
     public int waterFilled = 0;
 
     // Update is called once per frame
     private void Update()
     {
-        if (Input.GetKey(KeyCode.E))
+        if (waterCooler1.GetComponent<WaterCooler>().coolerFill == 25)
         {
-            // Raycast is made.
-            Ray cameraRay = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.5f));
-            // Check if the raycast hits a colldier.
-            if (Physics.Raycast(cameraRay, out RaycastHit hitInfo, pickupRange))
-            {
-                // Checks if the raycast is hitting the water cooler GameObject and if the item they are holding is a bucket.
-                if (hitInfo.collider.tag == "WaterCooler" && playerManager.equippedItem)
-                {
-                    if (playerManager.equippedItem.CompareTag("Bucket"))
-                    {
-                        Debug.Log("Water Cooler Being filled");
-                    }
-                }
-            }
+            waterFilled += 1;
+            waterCooler1.GetComponent<WaterCooler>().coolerFill = -1;
         }
+        if (waterCooler2.GetComponent<WaterCooler>().coolerFill == 25)
+        {
+            waterFilled += 1;
+            waterCooler2.GetComponent<WaterCooler>().coolerFill = -1;
+        }
+        if (waterCooler3.GetComponent<WaterCooler>().coolerFill == 25)
+        {
+            waterFilled += 1;
+            waterCooler3.GetComponent<WaterCooler>().coolerFill = -1;
+        }
+        if (waterCooler4.GetComponent<WaterCooler>().coolerFill == 25)
+        {
+            waterFilled += 1;
+            waterCooler4.GetComponent<WaterCooler>().coolerFill = -1;
+        }
+
     }
 }
