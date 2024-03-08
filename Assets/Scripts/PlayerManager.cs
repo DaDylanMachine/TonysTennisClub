@@ -26,7 +26,7 @@ public class PlayerManager : MonoBehaviour
     // Float variable that determines the distance of the Raycast.
     public float pickupRange = 10f;
     // Boolean variable that keeps track if an item is equipped or not.
-    private bool itemEquipped;
+    public bool itemEquipped;
     // Boolean vatiable that keeps track if the inventory is full or not.
     private bool fullInventory;
 
@@ -117,12 +117,12 @@ public class PlayerManager : MonoBehaviour
     // Function for equipping an item.
     void Equip()
     {
-        // If the item is not the first item picked up, deactivate it.
-        if (itemPosition.GetComponent<Transform>().childCount >= 1)
-        {
-            item.SetActive(false);
-            pickupText.SetActive(false);
-        }
+        //// If the item is not the first item picked up, deactivate it.
+        //if (itemPosition.GetComponent<Transform>().childCount >= 1)
+        //{
+        //    item.SetActive(false);
+        //    pickupText.SetActive(false);
+        //}
         // Places the item in the EquipPosition.
         item.transform.SetPositionAndRotation(itemPosition.transform.position, itemPosition.transform.rotation);
 
@@ -130,14 +130,40 @@ public class PlayerManager : MonoBehaviour
         item.GetComponent<Rigidbody>().isKinematic = true;
         item.GetComponent<Collider>().enabled = false;
 
+        //Set Item Index for Inventory System to lowest available index in array
+        for (int i = 0; i < 3; i++)
+        {
+            if (!itemPosition.GetComponent<ItemSwap>().inventoryArray[i].HasValue)
+            {
+                //if the current selected index does not equal the lowest empty slot selected, set item to inactive otherwise set item as active
+                if (itemPosition.GetComponent<ItemSwap>().selectedItem != i)
+                {
+                    item.SetActive(false);
+                    pickupText.SetActive(false);
+
+                }
+                else
+                {
+                    equippedItem = item;
+                    itemEquipped = true;
+                }
+                //Set Inventory Index for item and in Inventory Array
+                item.GetComponent<ItemManager>().inventoryIndex = i;
+                itemPosition.GetComponent<ItemSwap>().inventoryArray[i] = i;
+                break;
+            }
+                
+        }
+
         // Places the item as a child of EquipPosition.
         item.transform.SetParent(itemPosition.GetComponent<Transform>());
 
         // Denotes that an item is equipped.
-        itemEquipped = true;
 
-        // Determines which item is currently equipped and puts it into a variable. 3/6/2024 Having bug issues where occasionally pick up will not be equipped
-        equippedItem = itemPosition.transform.GetChild(itemPosition.GetComponent<ItemSwap>().selectedItem).gameObject; 
+        // Determines which item is currently equipped and puts it into a variable.
+        // 3/6/2024 Having bug issues where occasionally pick up will not be equipped
+        // 3/7/2024 Removed and added equippedItem and item equipped as part of the index set loop
+        // equippedItem = itemPosition.transform.GetChild(itemPosition.GetComponent<ItemSwap>().selectedItem).gameObject; 
     }
 
     // Function for dropping an item.
@@ -148,6 +174,10 @@ public class PlayerManager : MonoBehaviour
         //equippedItem.GetComponent<Rigidbody>().isKinematic = false;
         //equippedItem.GetComponent<Collider>().enabled = true;
 
+        //Reset Index of Item and Inventory Array
+        itemPosition.GetComponent<ItemSwap>().inventoryArray[equippedItem.GetComponent<ItemManager>().inventoryIndex] = null;
+        equippedItem.GetComponent<ItemManager>().inventoryIndex = -1;
+
         // Removes the equipped item under EquipPosition GameObject.
         equippedItem.transform.SetParent(null);
 
@@ -156,16 +186,21 @@ public class PlayerManager : MonoBehaviour
         Destroy(equippedItem);
 
         // Check to see if the dropped item was the last item in the inventory, if not, swap to another item
-        if (itemPosition.GetComponent<Transform>().childCount == 0)
-        {
-            itemEquipped = false;
-            equippedItem = null;
-        }           
-        else
-            itemPosition.GetComponent<ItemSwap>().SelectItem();
+        // 3/7/2024 Setting Item Equipped to false and equipped Item to Null whenever called
+        //if (itemPosition.GetComponent<Transform>().childCount == 0)
+        //{
+        itemEquipped = false;
+        equippedItem = null;
+        //}           
+        //else
+        //    itemPosition.GetComponent<ItemSwap>().SelectItem();
     }
     public void dropItem() //3/5/2024 Created dropItem script just for the Q button
     {
+
+        //Reset Index of Item and Inventory Array
+        itemPosition.GetComponent<ItemSwap>().inventoryArray[equippedItem.GetComponent<ItemManager>().inventoryIndex] = null;
+        equippedItem.GetComponent<ItemManager>().inventoryIndex = -1;
 
         // Sets the equipped item back to a pickupable state.
         equippedItem.GetComponent<Rigidbody>().isKinematic = false;
@@ -175,13 +210,14 @@ public class PlayerManager : MonoBehaviour
         equippedItem.transform.SetParent(null);
 
         // Check to see if the dropped item was the last item in the inventory, if not, swap to another item
-        if (itemPosition.GetComponent<Transform>().childCount == 0)
-        {
+        // 3/7/2024 Setting Item Equipped to false and equipped Item to Null whenever called
+        //if (itemPosition.GetComponent<Transform>().childCount == 0)
+        //{
             itemEquipped = false;
             equippedItem = null;
-        }
-        else
-            itemPosition.GetComponent<ItemSwap>().SelectItem();
+        //}
+        //else
+        //    itemPosition.GetComponent<ItemSwap>().SelectItem();
     }
 
     // Function to check if the objective for each task has been met.

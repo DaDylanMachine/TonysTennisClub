@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class ItemSwap : MonoBehaviour
 {
     // Variable that helps denote which item in the inventory is equipped.
     public int selectedItem = 0;
+
+    //Integer Array for Static Inventory System
+    public int?[] inventoryArray = new int?[3];
     // Variable that will allow us to change the equippedItem variable in this script.
     public PlayerManager playerManager;
 
@@ -46,18 +50,18 @@ public class ItemSwap : MonoBehaviour
         {
             selectedItem = 0;
         }
-        if(Input.GetKeyDown(KeyCode.Alpha2) && transform.childCount >= 2)
+        if (Input.GetKeyDown(KeyCode.Alpha2) /*&& transform.childCount >= 2*/)
         {
             selectedItem = 1;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3) && transform.childCount >= 3)
+        if (Input.GetKeyDown(KeyCode.Alpha3) /*&& transform.childCount >= 3*/)
         {
             selectedItem = 2;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha4) && transform.childCount >= 4)
-        {
-            selectedItem = 3;
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha4) && transform.childCount >= 4)
+        //{
+        //    selectedItem = 3;
+        //}
 
         // If the selected item has changed then run the SelectItem function.
         if (previousSelectedItem != selectedItem)
@@ -70,31 +74,39 @@ public class ItemSwap : MonoBehaviour
     public void SelectItem()
     {
         // Iterator variable.
-        int i = 0;
-        
+        //int i = 0;
+
         // Checks to see if the selectedItem variable is higher than the available indexes.
-        if (selectedItem > this.GetComponent<Transform>().childCount - 1)
+        //if (selectedItem > this.GetComponent<Transform>().childCount - 1)
+        //{
+        //    selectedItem--;
+        //}
+
+        //Check to see if selected index is valid in the array and set appropriate variable
+            // Iterates through every item the player has in their inventory and checks which one should be equipped.
+            foreach (Transform item in transform)
+            {
+                // If the iterator matches the value of the selected item, activate the item and if not, deactivate it.
+                if (item.GetComponent<ItemManager>().inventoryIndex == selectedItem)
+                {
+                    item.gameObject.SetActive(true);
+                    // Updates the value of the equippedItem so it's in line with what is actually equipped.
+                    playerManager.equippedItem = item.gameObject;
+                    playerManager.itemEquipped = true;
+                }
+                else
+                {
+                    item.gameObject.SetActive(false);
+                }
+
+            }
+        //if the array value is empty for selected Item, set item equipped to false and equipped item to null
+        if (!inventoryArray[selectedItem].HasValue)
         {
-            selectedItem--;
+            playerManager.equippedItem = null;
+            playerManager.itemEquipped = false;
         }
 
-        // Iterates through every item the player has in their inventory and checks which one should be equipped.
-        foreach(Transform item in transform)
-        {
-            // If the iterator matches the value of the selected item, activate the item and if not, deactivate it.
-            if (i == selectedItem)
-            {
-                item.gameObject.SetActive(true);
-                // Updates the value of the equippedItem so it's in line with what is actually equipped.
-                playerManager.equippedItem = item.gameObject;
-            }
-            else
-            {
-                item.gameObject.SetActive(false);
-            }
-
-            i++;
-        }
     }
 
 }

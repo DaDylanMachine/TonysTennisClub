@@ -8,6 +8,9 @@ public class ItemManager : MonoBehaviour
     public Camera playerCamera;
     public PlayerManager rayRange;
 
+    //Item Index to be used for the inventory
+    public int inventoryIndex = -1;
+
     // Functions that display text informing the player they can pickup an item when they hover over it.
     // Only occurs if the checklist item is put away.
     public void OnMouseOver()
