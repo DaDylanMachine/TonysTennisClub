@@ -20,6 +20,7 @@ public class PlayerManager : MonoBehaviour
     public Text trashObjText;
     // LayerMask variable to denote what layer the Raycast is looking for.
     public LayerMask pickupMask;
+    public LayerMask cartMask;
     // Float variable that determines the distance of the Raycast.
     public float pickupRange = 10f;
     // Boolean variable that keeps track if an item is equipped or not.
@@ -95,7 +96,10 @@ public class PlayerManager : MonoBehaviour
                         Equip();
                     }
                 }
-
+                else if(Physics.Raycast(cameraRay, out RaycastHit hitInfo2, pickupRange, cartMask))
+                {
+                    hitInfo2.collider.gameObject.GetComponent<CarController>().enabled = true;
+                }
             }
         }
     }
