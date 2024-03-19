@@ -13,6 +13,7 @@ public class CarController : MonoBehaviour
     private float currentSteerAngle;
     private float currentbreakForce;
     private bool isBreaking;
+    public GameObject player;
 
     [SerializeField] private float motorForce;
     [SerializeField] private float breakForce;
@@ -27,6 +28,20 @@ public class CarController : MonoBehaviour
     [SerializeField] private Transform frontRightWheeTransform;
     [SerializeField] private Transform rearLeftWheelTransform;
     [SerializeField] private Transform rearRightWheelTransform;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            player.GetComponent<TonyRun>().enabled = true;
+            player.transform.position += new Vector3(0, 4, 0);
+            player.GetComponent<CharacterController>().enabled = true;
+            player.transform.SetParent(null);
+            player = null;
+            Debug.Log("key pressed");
+            this.enabled = false;
+        }
+    }
 
     private void FixedUpdate()
     {

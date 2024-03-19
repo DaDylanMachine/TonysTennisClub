@@ -23,6 +23,7 @@ public class PlayerManager : MonoBehaviour
     public Text waterObjText;
     // LayerMask variable to denote what layer the Raycast is looking for.
     public LayerMask pickupMask;
+    public LayerMask cartMask;
     // Float variable that determines the distance of the Raycast.
     public float pickupRange = 10f;
     // Boolean variable that keeps track if an item is equipped or not.
@@ -89,18 +90,29 @@ public class PlayerManager : MonoBehaviour
                 // Check if the raycast hits an item.
                 if (Physics.Raycast(cameraRay, out RaycastHit hitInfo, pickupRange, pickupMask))
                 {
+                    item = hitInfo.collider.gameObject;
                     // If the players inventory is full, run the corutine that indicates to the player that info. Else, equip the item.
                     if (fullInventory == true)
                     {
                         StartCoroutine(DisplayFullInventory());
                     }
+                    else if (item.CompareTag("Cart"))
+                    {
+                        if(item.GetComponent<CarController>().player == null)
+                        {
+                            item.GetComponent<CarController>().enabled = true;
+                            this.GetComponent<TonyRun>().enabled = false;
+                            this.gameObject.transform.SetParent(item.transform);
+                            item.GetComponent<CarController>().player = this.gameObject;
+                            this.GetComponent<CharacterController>().enabled = false;
+                            item.GetComponent<CarController>().player.transform.position = item.transform.GetChild(0).transform.position;
+                        }
+                    }
                     else
                     {
-                        item = hitInfo.collider.gameObject;
                         Equip();
                     }
                 }
-
             }
         }
     }
