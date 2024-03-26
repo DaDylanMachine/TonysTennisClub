@@ -6,6 +6,18 @@ TagManager:
   tags:
   - CanGrab
   - Map Section
+  - Trash
+  - TrashText
+  - TrashCan
+  - TrashToggle
+  - Bucket
+  - WaterCooler
+  - CoolerText
+  - FaucetText
+  - WaterFaucet
+  - WaterToggle
+  - WaterText
+  - Cart
   layers:
   - Default
   - TransparentFX
