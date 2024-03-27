@@ -31,7 +31,7 @@ public class CarController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             player.GetComponent<TonyRun>().enabled = true;
             player.transform.position += new Vector3(0, 4, 0);
