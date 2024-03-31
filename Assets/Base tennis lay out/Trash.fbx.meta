@@ -3,7 +3,27 @@ guid: 8a26aea807668fa47bdfa0b398356ee1
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Label 2
+    second: {fileID: 2100000, guid: b6fb18ad3754dfe4fac28eadf670fa08, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bobble
+    second: {fileID: 2100000, guid: 57f9c06328a4f234ba827f88178d5bea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: label
+    second: {fileID: 2100000, guid: 6aea70386c9611247abfc8e0edda3fb0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plastic
+    second: {fileID: 2100000, guid: 83ff0b5e8cde45a409e9c5c5efeda88e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
