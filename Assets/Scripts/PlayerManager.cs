@@ -122,7 +122,7 @@ public class PlayerManager : MonoBehaviour
         // I've been using this just for debug purposes.
         if (Input.GetKey(KeyCode.T))
         {
-            
+            Debug.Log(Time.deltaTime);
         }
     }
 
