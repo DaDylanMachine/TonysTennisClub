@@ -84,7 +84,9 @@ MonoBehaviour:
   barOfStamina: {fileID: 0}
   staminaBar: {fileID: 0}
   gravity: -100
+  defaultWalkSpeed: 16
   walkSpeed: 16
+  defaultSprintSpeed: 32
   sprintSpeed: 32
   groundDistance: 0.4
   jumpHeight: 2
@@ -113,11 +115,21 @@ MonoBehaviour:
   itemPosition: {fileID: 5916149967649665409}
   checkList: {fileID: 8515004058737449271}
   uiChecklist: {fileID: 0}
+  trashCan: {fileID: 0}
+  waterCooler: {fileID: 0}
+  trashObjToggle: {fileID: 0}
+  waterObjToggle: {fileID: 0}
   playerCamera: {fileID: 2899808909806240252}
+  trashObjText: {fileID: 0}
+  waterObjText: {fileID: 0}
   pickupMask:
     serializedVersion: 2
     m_Bits: 512
+  cartMask:
+    serializedVersion: 2
+    m_Bits: 0
   pickupRange: 10
+  itemEquipped: 0
 --- !u!1 &2839705087446403552
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,7 +379,7 @@ Transform:
   m_GameObject: {fileID: 5916149967649665409}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.82, y: -0.87, z: 1.44}
+  m_LocalPosition: {x: 0.82, y: -0.87, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -400,7 +412,7 @@ GameObject:
   - component: {fileID: 869116132506215079}
   - component: {fileID: 6386721622818844302}
   m_Layer: 0
-  m_Name: Checklist
+  m_Name: Checklist Obj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
