@@ -35,10 +35,10 @@ public class CarController : MonoBehaviour
         {
             player.GetComponent<TonyRun>().enabled = true;
             player.transform.position += new Vector3(0, 4, 0);
+            player.transform.Rotate(0f, 0f, 0f, Space.World);
             player.GetComponent<CharacterController>().enabled = true;
             player.transform.SetParent(null);
             player = null;
-            Debug.Log("key pressed");
             this.enabled = false;
         }
     }
