@@ -20,7 +20,7 @@ public class BrushCourtsObj : MonoBehaviour
             if (brushedCourts == 2)
             {
                 taskComplete = true;
-                Debug.Log("Court Task Complete");
+                
             }
 
            

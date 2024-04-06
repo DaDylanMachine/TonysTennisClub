@@ -18,6 +18,8 @@ TagManager:
   - WaterToggle
   - WaterText
   - Cart
+  - BrushText
+  - BrushToggle
   layers:
   - Default
   - TransparentFX

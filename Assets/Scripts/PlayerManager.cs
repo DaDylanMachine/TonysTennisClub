@@ -16,11 +16,14 @@ public class PlayerManager : MonoBehaviour
     public GameObject uiChecklist;
     public TrashObj trashCan;
     public WaterCoolerObj waterCooler;
+    public BrushCourtsObj brushCourts;
     public Toggle trashObjToggle;
     public Toggle waterObjToggle;
+    public Toggle brushObjToggle;
     public Camera playerCamera;
     public Text trashObjText;
     public Text waterObjText;
+    public Text brushObjText;
     // LayerMask variable to denote what layer the Raycast is looking for.
     public LayerMask pickupMask;
     public LayerMask cartMask;
@@ -42,6 +45,8 @@ public class PlayerManager : MonoBehaviour
         trashObjText = GameObject.FindGameObjectWithTag("TrashText").GetComponent<Text>();
         waterObjToggle = GameObject.FindGameObjectWithTag("WaterToggle").GetComponent<Toggle>();
         waterObjText = GameObject.FindGameObjectWithTag("WaterText").GetComponent<Text>();
+        brushObjToggle = GameObject.FindGameObjectWithTag("BrushToggle").GetComponent<Toggle>();
+        brushObjText = GameObject.FindGameObjectWithTag("BrushText").GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -258,6 +263,16 @@ public class PlayerManager : MonoBehaviour
                 break;
                 
 
+        }
+
+        switch (brushCourts.brushedCourts)
+        {
+            case 2:
+                brushObjToggle.isOn = true;
+                goto default;
+            default:
+                brushObjText.text = "Brush the Courts with the Cart (" + brushCourts.brushedCourts.ToString() + "/2)";
+                break;
         }
 
 
