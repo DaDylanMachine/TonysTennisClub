@@ -35,6 +35,7 @@ public class PlayerManager : MonoBehaviour
     // Boolean vatiable that keeps track if the inventory is full or not.
     private bool fullInventory;
 
+    public bool isDead;
 
     // Start is called before the first frame update
     void Start()
@@ -54,11 +55,11 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if(trashObjToggle.isOn && waterObjToggle.isOn && brushObjToggle.isOn)
+        if (isDead || (trashObjToggle.isOn && waterObjToggle.isOn && brushObjToggle.isOn))
         {
-            //Debug.Log("froggers");
             endGame.TransitionEnd();
         }
+
 
         // If there are under 3 items on the player, the inventory isnt full. Otherwise, it is full.
         if (itemPosition.transform.childCount < 3)

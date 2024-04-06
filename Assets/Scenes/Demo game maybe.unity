@@ -25669,6 +25669,7 @@ MonoBehaviour:
   start: 0
   nextScene: 0
   transitionObj: {fileID: 0}
+  managePlayer: {fileID: 0}
   fadeTime: 3
   fadeTime2: 5
   fadeTime3: 8
@@ -44766,6 +44767,10 @@ PrefabInstance:
       propertyPath: gridContent
       value: 
       objectReference: {fileID: 2102339922}
+    - target: {fileID: 3669287005660570277, guid: ba679da318a94944a981644cc0776824, type: 3}
+      propertyPath: managePlayer
+      value: 
+      objectReference: {fileID: 1116229781}
     - target: {fileID: 3669287005660570277, guid: ba679da318a94944a981644cc0776824, type: 3}
       propertyPath: transitionObj
       value: 
