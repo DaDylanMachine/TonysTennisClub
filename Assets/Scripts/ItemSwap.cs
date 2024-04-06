@@ -40,7 +40,11 @@ public class ItemSwap : MonoBehaviour
         {
             // If the index goes below 0, set the index to one less thant the amount of children. Else, decrease the index by one.
             if (selectedItem <= 0)
+            {
                 selectedItem = transform.childCount - 1;
+                if (selectedItem < 0)
+                    selectedItem = 0; 
+            }
             else
                 selectedItem--;
         }
