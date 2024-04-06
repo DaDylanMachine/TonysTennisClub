@@ -136,7 +136,8 @@ public class PlayerManager : MonoBehaviour
         //    pickupText.SetActive(false);
         //}
         // Places the item in the EquipPosition.
-        item.transform.SetPositionAndRotation(itemPosition.transform.position, itemPosition.transform.rotation);
+        item.transform.SetPositionAndRotation(itemPosition.transform.position, item.transform.rotation);
+
 
         // Sets the item to the equipped state.
         item.GetComponent<Rigidbody>().isKinematic = true;
