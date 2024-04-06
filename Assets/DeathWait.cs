@@ -16,30 +16,22 @@ public class DeathWait : MonoBehaviour
     private void Awake()
     {
         StartCoroutine(transition());
-
-        if (nextScene)
-        {
-            start = false;
-            SceneManager.LoadScene("End");
-        }
     }
 
     IEnumerator transition()
     {
-        yield return new WaitForSecondsRealtime(5);
-
+        yield return new WaitForSecondsRealtime(10);
         float elapsedTime = 0.0f;
         Color temp = transitionObj.GetComponent<Image>().color;
         while (elapsedTime < fadeTime)
         {
             yield return null;
             elapsedTime += Time.deltaTime;
-            temp.a = -Mathf.Clamp01(elapsedTime / fadeTime);
+            temp.a = Mathf.Clamp01(elapsedTime / fadeTime);
             transitionObj.GetComponent<Image>().color = temp;
         }
-
-        nextScene = true;
         yield return new WaitForSecondsRealtime(3);
+        SceneManager.LoadScene("End");
     }
 }
 

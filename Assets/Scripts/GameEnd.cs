@@ -22,7 +22,6 @@ public class GameEnd : MonoBehaviour
         if (nextScene)
         {
             start = false;
-            Debug.Log("Starting Next Scene");
             
             if (managePlayer.isDead)
                 SceneManager.LoadScene("Death");
