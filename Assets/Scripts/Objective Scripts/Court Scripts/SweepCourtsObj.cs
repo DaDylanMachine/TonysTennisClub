@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,21 +6,19 @@ using UnityEngine;
 public class SweepCourtsObj : MonoBehaviour
 {
     // GameObject and Component variables to edit them within the script.
-    public Material unbrushedMaterial;
-    public Material brushedMaterial;
+    public GameObject unbrushedCourt;
+    public GameObject gameManager;
     public float timer = 0f;
-    public float timeRate = .01f;
+    public float timeRate = .005f;
     public float finalTime = 15f;
-
-    private void Start()
-    {
-        this.GetComponent<MeshRenderer>().material = unbrushedMaterial;
-    }
+    private Color tempColor;
+    public bool courtUpdated = false;
 
     private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.tag == "Cart")
         {
+            //if (collision.gameObject.GetComponent<>)
             StartCoroutine(brushCourt());
         }
         
@@ -29,13 +28,28 @@ public class SweepCourtsObj : MonoBehaviour
     {
         while (timer < finalTime)
         {
-            Debug.Log("Lerping Between Brushed and Unbrushed");
+            tempColor = unbrushedCourt.GetComponent<MeshRenderer>().material.color;
+            //Debug.Log("Unbrushing");
             timer += timeRate * Time.deltaTime;
-            float lerp = Mathf.PingPong(timer, finalTime) / finalTime;
-            this.GetComponent<MeshRenderer>().material.Lerp(unbrushedMaterial, brushedMaterial, lerp);
+            tempColor.a = 1.0f - Mathf.Clamp01(timer / finalTime);
+            unbrushedCourt.GetComponent<MeshRenderer>().material.color = tempColor;
             yield return null;
         }
 
+    }
+
+    private void Update()
+    {
+        if (!courtUpdated)
+        {
+            if (unbrushedCourt.GetComponent<MeshRenderer>().material.color.a == 0f)
+            {
+                gameManager.GetComponent<BrushCourtsObj>().brushedCourts += 1;
+                unbrushedCourt.SetActive(false);
+                courtUpdated = true;
+            }
+
+        }
     }
 
     //// Function that changes the Court Texture to Brushed after the cart is on the court for about 10 seconds.
