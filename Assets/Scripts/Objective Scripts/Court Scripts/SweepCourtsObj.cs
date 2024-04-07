@@ -29,7 +29,6 @@ public class SweepCourtsObj : MonoBehaviour
         while (timer < finalTime)
         {
             tempColor = unbrushedCourt.GetComponent<MeshRenderer>().material.color;
-            //Debug.Log("Unbrushing");
             timer += timeRate * Time.deltaTime;
             tempColor.a = 1.0f - Mathf.Clamp01(timer / finalTime);
             unbrushedCourt.GetComponent<MeshRenderer>().material.color = tempColor;

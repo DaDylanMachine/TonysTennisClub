@@ -21,7 +21,11 @@ TagManager:
   - BrushText
   - BrushToggle
   - SpawnMonster
+  - Peeper
+  - Deer
   - Monster
+  - LeaveText
+  - Spawn
   layers:
   - Default
   - TransparentFX

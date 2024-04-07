@@ -15,10 +15,25 @@ public class DeathWait : MonoBehaviour
 
     private void Awake()
     {
-        StartCoroutine(transition());
+        StartCoroutine(Transition());
     }
 
-    IEnumerator transition()
+    IEnumerator Transition()
+    {
+        float elapsedTime = 0.0f;
+        Color temp = transitionObj.GetComponent<Image>().color;
+        while (elapsedTime < fadeTime)
+        {
+            yield return null;
+            elapsedTime += Time.deltaTime;
+            temp.a = 1.0f - Mathf.Clamp01(elapsedTime / fadeTime);
+            transitionObj.GetComponent<Image>().color = temp;
+        }
+
+        StartCoroutine(Transition2());
+    }
+
+    IEnumerator Transition2()
     {
         yield return new WaitForSecondsRealtime(10);
         float elapsedTime = 0.0f;

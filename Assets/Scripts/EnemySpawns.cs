@@ -16,7 +16,6 @@ public class EnemySpawns : MonoBehaviour
     private float peeperSelectedTime;
     public bool peeperSpawned = false;
     public bool deerSpawned = false;
-    public GameObject deerSpawnPoint;
 
     //Peeper Spawn Logic:
     //Create random timer interval with a time between x and y seconds
@@ -34,7 +33,7 @@ public class EnemySpawns : MonoBehaviour
     //Determine area in the map that should be used as play area
     //If player steps out of the play area, spawn the deer enemy randomly within raycast range of player (optionally outside treeline, ignore collisions)
     //Deer will determine fastest possible route to player and chase until death
-    public void deerLogic()
+    public void deerLogic(GameObject deerSpawnPoint)
     {
         if (!deerSpawned)
         {

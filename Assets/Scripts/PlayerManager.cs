@@ -8,6 +8,7 @@ public class PlayerManager : MonoBehaviour
 {
     // GameObject and Component variables to edit them within the script.
     private GameObject item;
+    public GameManager GameManager;
     public GameObject equippedItem;
     public GameObject player;
     public GameObject pickupText;
@@ -15,10 +16,14 @@ public class PlayerManager : MonoBehaviour
     public GameObject itemPosition;
     public GameObject checkList;
     public GameObject uiChecklist;
+    public GameObject peeperDeath;
+    public GameObject deerDeath;
+    public GameObject leaveTrigger;
+    public GameObject leaveText;
+    public GameObject spawnPoint;
     public TrashObj trashCan;
     public WaterCoolerObj waterCooler;
     public BrushCourtsObj brushCourts;
-    public GameEnd endGame;
     public Toggle trashObjToggle;
     public Toggle waterObjToggle;
     public Toggle brushObjToggle;
@@ -36,14 +41,13 @@ public class PlayerManager : MonoBehaviour
     // Boolean vatiable that keeps track if the inventory is full or not.
     private bool fullInventory;
 
-    public bool isDead;
-
     // Start is called before the first frame update
     void Start()
     {
         // Make sure the text is off.
         pickupText.SetActive(false);
         fullInventoryText.SetActive(false);
+        leaveText.SetActive(false);
         // References the variables to Components to use later in the script. Must be done here since the GameObject spawns after startup.
         trashObjToggle = GameObject.FindGameObjectWithTag("TrashToggle").GetComponent<Toggle>();
         trashObjText = GameObject.FindGameObjectWithTag("TrashText").GetComponent<Text>();
@@ -58,41 +62,23 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if(trashObjToggle == null)
-        {
-            trashObjToggle = GameObject.FindGameObjectWithTag("TrashToggle").GetComponent<Toggle>();
-        }
-        if (trashObjText == null)
-        {
-            trashObjText = GameObject.FindGameObjectWithTag("TrashText").GetComponent<Text>();
-        }
         if (trashObjToggle == null)
-        {
-            waterObjToggle = GameObject.FindGameObjectWithTag("WaterToggle").GetComponent<Toggle>();
-        }
+            trashObjToggle = GameObject.FindGameObjectWithTag("TrashToggle").GetComponent<Toggle>();
         if (waterObjToggle == null)
-        {
-            waterObjText = GameObject.FindGameObjectWithTag("WaterText").GetComponent<Text>();
-        }
+            waterObjToggle = GameObject.FindGameObjectWithTag("WaterToggle").GetComponent<Toggle>();
         if (waterObjText == null)
-        {
-            brushObjToggle = GameObject.FindGameObjectWithTag("BrushToggle").GetComponent<Toggle>();
-        }
+            waterObjText = GameObject.FindGameObjectWithTag("WaterText").GetComponent<Text>();
         if (brushObjToggle == null)
-        {
+            brushObjToggle = GameObject.FindGameObjectWithTag("BrushToggle").GetComponent<Toggle>();
+        if (brushObjText == null)
             brushObjText = GameObject.FindGameObjectWithTag("BrushText").GetComponent<Text>();
-        }
+        if (trashObjText == null)
+            trashObjText = GameObject.FindGameObjectWithTag("TrashText").GetComponent<Text>();
 
         if (trashObjToggle.isOn && waterObjToggle.isOn && brushObjToggle.isOn)
         {
-            endGame.TransitionEnd();
+            StartCoroutine(HomeStretch());
         }
-
-        if (isDead)
-        {
-            endGame.TransitionEnd();
-        }
-
 
         // If there are under 3 items on the player, the inventory isnt full. Otherwise, it is full.
         if (itemPosition.transform.childCount < 3)
@@ -322,11 +308,18 @@ public class PlayerManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Poggers");
-        if (other.gameObject.tag == "Monster")
+        if (other.gameObject.tag == "Peeper")
         {
-            isDead = true;
+            peeperDeath.SetActive(true);
+            StartCoroutine(WaitASec());
         }
+        if (other.gameObject.tag == "Deer")
+        {
+            deerDeath.SetActive(true);
+            StartCoroutine(WaitASec());
+        }
+
+
     }
 
     // Coroutine that displays text that indicates the inventory is full and the after some time, hides the text.
@@ -335,5 +328,22 @@ public class PlayerManager : MonoBehaviour
         fullInventoryText.SetActive(true);
         yield return new WaitForSecondsRealtime(2);
         fullInventoryText.SetActive(false);
+    }
+
+
+    IEnumerator WaitASec()
+    {
+        yield return new WaitForSecondsRealtime(10);
+        SceneManager.LoadScene("Death");
+    }
+
+    IEnumerator HomeStretch()
+    {
+        leaveTrigger.SetActive(true);
+        leaveText.SetActive(true);
+        yield return new WaitForSecondsRealtime(3);
+        leaveText.SetActive(false);
+        GameManager.GetComponent<EnemySpawns>().deerLogic(spawnPoint);
+
     }
 }

@@ -35,7 +35,7 @@ public class TrashCan : MonoBehaviour
         }
     }
 
-    //Function that disables the deposit ttrash text when the mouse is not hovering over the can.
+    //Function that disables the deposit trash text when the mouse is not hovering over the can.
     public void OnMouseExit()
     {
         depositText.SetActive(false);
