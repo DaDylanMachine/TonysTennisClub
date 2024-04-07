@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -15,6 +16,7 @@ public class EnemySpawns : MonoBehaviour
     private float peeperSelectedTime;
     public bool peeperSpawned = false;
     public bool deerSpawned = false;
+    public GameObject deerSpawnPoint;
 
     //Peeper Spawn Logic:
     //Create random timer interval with a time between x and y seconds
@@ -34,7 +36,16 @@ public class EnemySpawns : MonoBehaviour
     //Deer will determine fastest possible route to player and chase until death
     public void deerLogic()
     {
-        Debug.Log("Deer Spawned");
+        if (!deerSpawned)
+        {
+            deerSpawned = true;
+            Vector3 deerSpawnSpot = deerSpawnPoint.transform.position;
+            if (Instantiate(deerEnemy, deerSpawnSpot, Quaternion.identity))
+            {
+                Debug.Log("Deer Spawned");
+            }
+
+        }
     }
 
     private void Start()
@@ -46,7 +57,7 @@ public class EnemySpawns : MonoBehaviour
     {
         if (!peeperSpawned)
         {
-            peeperSelectedTime = Random.Range(peeperMinTime, peeperMaxTime);
+            peeperSelectedTime = UnityEngine.Random.Range(peeperMinTime, peeperMaxTime);
             Debug.Log("Selected Peeper Time: " + peeperSelectedTime);
             yield return new WaitForSecondsRealtime(peeperSelectedTime);
 
@@ -56,13 +67,13 @@ public class EnemySpawns : MonoBehaviour
             //This shit is gonna require some explaining...
 
             //First determine a random x, y, and z outside of the RELATIVE VIEWPORT
-            float spawnX = Random.Range(-0.2f, 0.2f);
-            float spawnY = Random.Range(-0.2f, 0.2f);
+            float spawnX = UnityEngine.Random.Range(-0.2f, 0.2f);
+            float spawnY = UnityEngine.Random.Range(-0.2f, 0.2f);
             spawnX += Mathf.Sign(spawnX);
             spawnY += Mathf.Sign(spawnY);
-            float spawnZ = Random.Range(-20.0f,20.0f);
+            float spawnZ = UnityEngine.Random.Range(-20.0f,20.0f);
             while (spawnZ >= -1 && spawnZ <= 1)
-                spawnZ = Random.Range(-20.0f, 20.0f);
+                spawnZ = UnityEngine.Random.Range(-20.0f, 20.0f);
 
             //Set the Peeper Spawn point with the relative viewport
             Vector3 peeperSpawnSpot = playerCamera.ViewportToWorldPoint(new Vector3(spawnX, spawnY, spawnZ));
@@ -72,13 +83,13 @@ public class EnemySpawns : MonoBehaviour
             float radius = 1f;
             while (Physics.CheckSphere(peeperSpawnSpot, radius))
             {
-                spawnX = Random.Range(-0.2f, 0.2f);
-                spawnY = Random.Range(-0.2f, 0.2f);
+                spawnX = UnityEngine.Random.Range(-0.2f, 0.2f);
+                spawnY = UnityEngine.Random.Range(-0.2f, 0.2f);
                 spawnX += Mathf.Sign(spawnX);
                 spawnY += Mathf.Sign(spawnY);
-                spawnZ = Random.Range(-20.0f, 20.0f);
+                spawnZ = UnityEngine.Random.Range(-20.0f, 20.0f);
                 while (spawnZ >= -5 && spawnZ <= 5)
-                    spawnZ = Random.Range(-20.0f, 20.0f);
+                    spawnZ = UnityEngine.Random.Range(-20.0f, 20.0f);
 
                 //Set the Peeper Spawn point with the relative viewport
                 peeperSpawnSpot = playerCamera.ViewportToWorldPoint(new Vector3(spawnX, spawnY, spawnZ));

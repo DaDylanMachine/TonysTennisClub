@@ -34,6 +34,10 @@ public class PeeperLogic : MonoBehaviour
         {
             peeperAnimation = gameObject.GetComponent<Animator>();
         }
+        if (target == null)
+        {
+            target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        }
 
         /*var rotation = Quaternion.LookRotation(Camera.main.transform.position - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * damping);
@@ -96,7 +100,7 @@ public class PeeperLogic : MonoBehaviour
     {
 
         Debug.Log("Peeper Spotted, despawn.");
-        yield return new WaitForSecondsRealtime(5);
+        yield return new WaitForSecondsRealtime(2);
         gameObject.transform.Find("tballright").gameObject.SetActive(true);
         gameObject.transform.Find("tballleft").gameObject.SetActive(true);
         gameObject.transform.Find("tballright").parent = null;
