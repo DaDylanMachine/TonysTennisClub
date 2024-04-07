@@ -20,6 +20,7 @@ TagManager:
   - Cart
   - BrushText
   - BrushToggle
+  - SpawnMonster
   layers:
   - Default
   - TransparentFX
