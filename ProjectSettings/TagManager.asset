@@ -21,6 +21,7 @@ TagManager:
   - BrushText
   - BrushToggle
   - SpawnMonster
+  - Monster
   layers:
   - Default
   - TransparentFX

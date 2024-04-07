@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using static UnityEngine.GraphicsBuffer;
 
 public class PeeperLogic : MonoBehaviour
@@ -17,6 +18,15 @@ public class PeeperLogic : MonoBehaviour
     float damping = 6.0f;
 
     private Animator peeperAnimation;
+
+    public Transform target;
+    public NavMeshAgent agent;
+
+    private void Start()
+    {
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -25,14 +35,22 @@ public class PeeperLogic : MonoBehaviour
             peeperAnimation = gameObject.GetComponent<Animator>();
         }
 
-        var rotation = Quaternion.LookRotation(Camera.main.transform.position - transform.position);
+        /*var rotation = Quaternion.LookRotation(Camera.main.transform.position - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * damping);
+        transform.rotation = Quaternion.Euler(0f, transform.eulerAngles.y, 0f);*/
+
+        transform.LookAt(Camera.main.transform);
         
 
         if (!startAnger)
         {
             startAnger = true;
-            StartCoroutine(peeperAggression());
+            StartCoroutine(peeperAggression());          
+        }
+
+        if (angered && peeperAnimation.GetCurrentAnimatorStateInfo(0).IsName("Stalker_run work"))
+        {
+            agent.SetDestination(target.position);
         }
 
         Vector3 peeperPosition = Camera.main.WorldToViewportPoint(transform.position);
@@ -65,6 +83,7 @@ public class PeeperLogic : MonoBehaviour
             angered = true;
             peeperAnimation.SetBool("Angered", true);
             Debug.Log("Peeper Angered.");
+            
         }
         else
         {
@@ -84,5 +103,11 @@ public class PeeperLogic : MonoBehaviour
         gameObject.transform.Find("tballleft").parent = null;
         Destroy(gameObject);
         GameObject.Find("GameManager").GetComponent<EnemySpawns>().peeperSpawned = false;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, target.position);
     }
 }

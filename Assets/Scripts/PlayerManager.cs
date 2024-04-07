@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -52,10 +53,42 @@ public class PlayerManager : MonoBehaviour
         brushObjText = GameObject.FindGameObjectWithTag("BrushText").GetComponent<Text>();
     }
 
+ 
+
     // Update is called once per frame
     private void Update()
     {
-        if (isDead || (trashObjToggle.isOn && waterObjToggle.isOn && brushObjToggle.isOn))
+        if(trashObjToggle == null)
+        {
+            trashObjToggle = GameObject.FindGameObjectWithTag("TrashToggle").GetComponent<Toggle>();
+        }
+        if (trashObjText == null)
+        {
+            trashObjText = GameObject.FindGameObjectWithTag("TrashText").GetComponent<Text>();
+        }
+        if (trashObjToggle == null)
+        {
+            waterObjToggle = GameObject.FindGameObjectWithTag("WaterToggle").GetComponent<Toggle>();
+        }
+        if (waterObjToggle == null)
+        {
+            waterObjText = GameObject.FindGameObjectWithTag("WaterText").GetComponent<Text>();
+        }
+        if (waterObjText == null)
+        {
+            brushObjToggle = GameObject.FindGameObjectWithTag("BrushToggle").GetComponent<Toggle>();
+        }
+        if (brushObjToggle == null)
+        {
+            brushObjText = GameObject.FindGameObjectWithTag("BrushText").GetComponent<Text>();
+        }
+
+        if (trashObjToggle.isOn && waterObjToggle.isOn && brushObjToggle.isOn)
+        {
+            endGame.TransitionEnd();
+        }
+
+        if (isDead)
         {
             endGame.TransitionEnd();
         }
@@ -285,6 +318,15 @@ public class PlayerManager : MonoBehaviour
         }
 
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Poggers");
+        if (other.gameObject.tag == "Monster")
+        {
+            isDead = true;
+        }
     }
 
     // Coroutine that displays text that indicates the inventory is full and the after some time, hides the text.

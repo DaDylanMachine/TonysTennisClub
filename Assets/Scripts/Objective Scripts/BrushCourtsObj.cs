@@ -19,11 +19,8 @@ public class BrushCourtsObj : MonoBehaviour
         {
             if (brushedCourts == 2)
             {
-                taskComplete = true;
-                
-            }
-
-           
+                taskComplete = true;               
+            }           
         }
         
     }

@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
         newObjective.transform.localScale = new Vector3(1, 1, 1);
         newObjective = Instantiate(objectivesArrayHard[0]);
         newObjective.transform.SetParent(gridContent.GetComponent<Transform>());
-        newObjective.transform.localScale = new Vector3(1, 1, 1);
-        newObjective = Instantiate(objectivesArrayHard[1]);
+        //newObjective.transform.localScale = new Vector3(1, 1, 1);
+        //newObjective = Instantiate(objectivesArrayHard[1]);
     }
 }
