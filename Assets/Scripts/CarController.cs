@@ -14,6 +14,7 @@ public class CarController : MonoBehaviour
     private float currentbreakForce;
     private bool isBreaking;
     public GameObject player;
+    public GameObject audioSource;
 
     [SerializeField] private float motorForce;
     [SerializeField] private float breakForce;
@@ -34,12 +35,13 @@ public class CarController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             player.GetComponent<TonyRun>().enabled = true;
-            player.transform.position += new Vector3(0, 4, 0);
+            player.transform.position += new Vector3(0, 4, 6);
             player.transform.Rotate(0f, 0f, 0f, Space.World);
             player.GetComponent<CharacterController>().enabled = true;
             player.transform.SetParent(null);
             player = null;
             this.enabled = false;
+            audioSource.SetActive(false);
         }
     }
 
@@ -99,7 +101,7 @@ public class CarController : MonoBehaviour
         wheelCollider.GetWorldPose(out pos, out rot);
         wheelTransform.rotation = rot;
         wheelTransform.position = pos;
-
+       
         //Debug.Log("Wheel: " + wheelCollider.name + "Pos: " + pos + ", Rot: " + rot + "Transform Pos: " + wheelTransform.position + ", Transform Rot:" + wheelTransform.rotation);
     }
 }

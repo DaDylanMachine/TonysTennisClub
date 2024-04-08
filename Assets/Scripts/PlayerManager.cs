@@ -21,6 +21,7 @@ public class PlayerManager : MonoBehaviour
     public GameObject leaveTrigger;
     public GameObject leaveText;
     public GameObject spawnPoint;
+    public GameObject cartAudio;
     public TrashObj trashCan;
     public WaterCoolerObj waterCooler;
     public BrushCourtsObj brushCourts;
@@ -142,6 +143,7 @@ public class PlayerManager : MonoBehaviour
                             item.GetComponent<CarController>().player = this.gameObject;
                             this.GetComponent<CharacterController>().enabled = false;
                             item.GetComponent<CarController>().player.transform.position = item.transform.GetChild(0).transform.position;
+                            cartAudio.SetActive(true);
                         }
                     }
                     else
