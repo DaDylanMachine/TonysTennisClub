@@ -41,6 +41,7 @@ public class PlayerManager : MonoBehaviour
     // Boolean vatiable that keeps track if the inventory is full or not.
     private bool fullInventory;
 
+    private AudioSource[] stopAllAudio;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,12 +50,12 @@ public class PlayerManager : MonoBehaviour
         fullInventoryText.SetActive(false);
         leaveText.SetActive(false);
         // References the variables to Components to use later in the script. Must be done here since the GameObject spawns after startup.
-        trashObjToggle = GameObject.FindGameObjectWithTag("TrashToggle").GetComponent<Toggle>();
+        /*trashObjToggle = GameObject.FindGameObjectWithTag("TrashToggle").GetComponent<Toggle>();
         trashObjText = GameObject.FindGameObjectWithTag("TrashText").GetComponent<Text>();
         waterObjToggle = GameObject.FindGameObjectWithTag("WaterToggle").GetComponent<Toggle>();
         waterObjText = GameObject.FindGameObjectWithTag("WaterText").GetComponent<Text>();
         brushObjToggle = GameObject.FindGameObjectWithTag("BrushToggle").GetComponent<Toggle>();
-        brushObjText = GameObject.FindGameObjectWithTag("BrushText").GetComponent<Text>();
+        brushObjText = GameObject.FindGameObjectWithTag("BrushText").GetComponent<Text>();*/
     }
 
  
@@ -91,12 +92,14 @@ public class PlayerManager : MonoBehaviour
         {
             if (checkList.activeSelf)
             {
+                gameObject.transform.Find("Main Camera/ChecklistSound").GetComponent<AudioSource>().Play();
                 checkList.SetActive(false);
                 uiChecklist.SetActive(false);
                 itemPosition.SetActive(true);
             }
             else
             {
+                gameObject.transform.Find("Main Camera/ChecklistSound").GetComponent<AudioSource>().Play();
                 checkList.SetActive(true);
                 uiChecklist.SetActive(true);
                 itemPosition.SetActive(false);
@@ -168,6 +171,7 @@ public class PlayerManager : MonoBehaviour
         //    item.SetActive(false);
         //    pickupText.SetActive(false);
         //}
+        gameObject.transform.Find("Main Camera/PickupSounds").GetComponent<AudioSource>().Play();
         // Places the item in the EquipPosition.
         item.transform.SetPositionAndRotation(itemPosition.transform.position, item.transform.rotation);
 
@@ -310,11 +314,23 @@ public class PlayerManager : MonoBehaviour
     {
         if (other.gameObject.tag == "Peeper")
         {
+            stopAllAudio = FindObjectsOfType<AudioSource>();
+            for (int i = 0; i < stopAllAudio.Length; i++)
+            {
+                stopAllAudio[i].mute = true;
+                Debug.Log("Stopped Audio " + i);
+            }
             peeperDeath.SetActive(true);
             StartCoroutine(WaitASec());
         }
         if (other.gameObject.tag == "Deer")
         {
+            stopAllAudio = FindObjectsOfType<AudioSource>();
+            for (int i = 0; i < stopAllAudio.Length; i++)
+            {
+                stopAllAudio[i].mute = true;
+                Debug.Log("Stopped Audio " + i);
+            }
             deerDeath.SetActive(true);
             StartCoroutine(WaitASec());
         }
@@ -332,7 +348,7 @@ public class PlayerManager : MonoBehaviour
 
 
     IEnumerator WaitASec()
-    {
+    { 
         yield return new WaitForSecondsRealtime(10);
         SceneManager.LoadScene("Death");
     }

@@ -24,21 +24,25 @@ public class WaterCoolerObj : MonoBehaviour
     {
         if (waterCooler1.GetComponent<WaterCooler>().coolerFill == 25)
         {
+            gameObject.GetComponent<AudioSource>().Play();
             waterFilled += 1;
             waterCooler1.GetComponent<WaterCooler>().coolerFill = -1;
         }
         if (waterCooler2.GetComponent<WaterCooler>().coolerFill == 25)
         {
+            gameObject.GetComponent<AudioSource>().Play();
             waterFilled += 1;
             waterCooler2.GetComponent<WaterCooler>().coolerFill = -1;
         }
         if (waterCooler3.GetComponent<WaterCooler>().coolerFill == 25)
         {
+            gameObject.GetComponent<AudioSource>().Play();
             waterFilled += 1;
             waterCooler3.GetComponent<WaterCooler>().coolerFill = -1;
         }
         if (waterCooler4.GetComponent<WaterCooler>().coolerFill == 25)
         {
+            gameObject.GetComponent<AudioSource>().Play();
             waterFilled += 1;
             waterCooler4.GetComponent<WaterCooler>().coolerFill = -1;
         }

@@ -37,15 +37,27 @@ public class TonyRun : MonoBehaviour
     private float defaultYPos = 0;
     private float timer;
 
+    private AudioSource playerAudio;
+    public AudioClip[] stepSounds;
+    private bool stepping = false;
+
     // Awake is called the first time the script is run.
     private void Awake()
     {
         defaultYPos = playerCamera.transform.localPosition.y;
+        stepSounds = Resources.LoadAll<AudioClip>("Audio/Step Sounds");
+        playerAudio = gameObject.GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame.
     public void Update()
     {
+        if (stepSounds == null)
+        {
+            stepSounds = Resources.LoadAll<AudioClip>("Audio/Step Sounds");
+
+        }
         // Returns true if the imaginary sphere under the player is touching something other than the player.
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         // Pulls the staminaDepleted variable from the stamina script to use here.
@@ -87,6 +99,19 @@ public class TonyRun : MonoBehaviour
                 playerCamera.transform.localPosition.x, 
                 defaultYPos + Mathf.Sin(timer) * (isSprinting ? sprintBobAmount : walkBobAmount), 
                 playerCamera.transform.localPosition.z);
+            if (Mathf.Sin(timer) <= -.95f && stepping == false)
+            {
+                stepping = true;
+                int step = Random.Range(0, stepSounds.Length);
+                //Debug.Log("Play Step " + step);
+                AudioClip playStep = stepSounds[step];
+                playerAudio.clip = playStep;
+                playerAudio.Play();
+            }
+            else if (stepping == true && Mathf.Sin(timer) > -.95f)
+            {
+                stepping = false;
+            }
         }
 
     }

@@ -43,6 +43,7 @@ public class SweepCourtsObj : MonoBehaviour
         {
             if (unbrushedCourt.GetComponent<MeshRenderer>().material.color.a == 0f)
             {
+                gameManager.GetComponent<AudioSource>().Play();
                 gameManager.GetComponent<BrushCourtsObj>().brushedCourts += 1;
                 unbrushedCourt.SetActive(false);
                 courtUpdated = true;

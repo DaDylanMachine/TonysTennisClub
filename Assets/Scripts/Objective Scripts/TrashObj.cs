@@ -31,6 +31,7 @@ public class TrashObj : MonoBehaviour
                     if (playerManager.equippedItem.CompareTag("Trash"))
                     {
                         // If it is, destroy the trash item, denote that there is no equipped item, and track that another piece of trash has been deleted.
+                        gameObject.GetComponent<AudioSource>().Play();
                         playerManager.GetRidOfItem();
                         trashDeleted++;
                     }

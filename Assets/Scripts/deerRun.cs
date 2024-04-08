@@ -13,11 +13,16 @@ public class deerRun : MonoBehaviour
     private void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!gameObject.GetComponent<AudioSource>().isPlaying)
+        {
+            gameObject.GetComponent<AudioSource>().Play();
+        }
         if (deerAnimation == null)
         {
             deerAnimation = gameObject.GetComponent<Animator>();

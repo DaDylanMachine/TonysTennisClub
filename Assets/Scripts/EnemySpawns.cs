@@ -17,6 +17,9 @@ public class EnemySpawns : MonoBehaviour
     public bool peeperSpawned = false;
     public bool deerSpawned = false;
 
+    public GameObject peeperSpawnCue;
+    public GameObject deerSpawnCue;
+
     //Peeper Spawn Logic:
     //Create random timer interval with a time between x and y seconds
     //When the timer is reached, select a random spawn location for the peeper enemy that has a raycast to the player, NOT in the player sight range (determined by ray)
@@ -26,7 +29,7 @@ public class EnemySpawns : MonoBehaviour
     //If enemy is not looked at time, determine fastest possible route to player and chase until death
     public void peeperLogic()
     {
-        Debug.Log("Peeper Spawned");
+        //Debug.Log("Peeper Spawned");
     }
 
     //Deer Spawn Logic:
@@ -41,7 +44,8 @@ public class EnemySpawns : MonoBehaviour
             Vector3 deerSpawnSpot = deerSpawnPoint.transform.position;
             if (Instantiate(deerEnemy, deerSpawnSpot, Quaternion.identity))
             {
-                Debug.Log("Deer Spawned");
+                deerSpawnCue.GetComponent<AudioSource>().Play();
+                //Debug.Log("Deer Spawned");
             }
 
         }
@@ -57,10 +61,10 @@ public class EnemySpawns : MonoBehaviour
         if (!peeperSpawned)
         {
             peeperSelectedTime = UnityEngine.Random.Range(peeperMinTime, peeperMaxTime);
-            Debug.Log("Selected Peeper Time: " + peeperSelectedTime);
+            //Debug.Log("Selected Peeper Time: " + peeperSelectedTime);
             yield return new WaitForSecondsRealtime(peeperSelectedTime);
 
-            Debug.Log("Start Peeper Spawn");
+            //Debug.Log("Start Peeper Spawn");
             peeperSpawned = true;
 
             //This shit is gonna require some explaining...
@@ -96,10 +100,11 @@ public class EnemySpawns : MonoBehaviour
                 peeperSpawnSpot.y = 11;
             }
 
-            Debug.Log("Peeper Spawn Point: " + peeperSpawnSpot);
+            //Debug.Log("Peeper Spawn Point: " + peeperSpawnSpot);
             //Finally, instantiate
             if (Instantiate(peeperEnemy, peeperSpawnSpot, Quaternion.identity))
-                Debug.Log("Peeper Spawned");
+                peeperSpawnCue.GetComponent<AudioSource>().Play();
+                //Debug.Log("Peeper Spawned");
 
         }
 
@@ -107,7 +112,7 @@ public class EnemySpawns : MonoBehaviour
         {
             yield return null;
         }
-        Debug.Log("Peeper Despawned, starting new timer");
+        //Debug.Log("Peeper Despawned, starting new timer");
         StartCoroutine(peeperSpawn());
     }
 

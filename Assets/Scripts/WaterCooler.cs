@@ -44,9 +44,16 @@ public class WaterCooler : MonoBehaviour
                 {   //Checks Bucket Tag and if the bucketFill on the bucket is greater than 0
                     if (playerManager.equippedItem.CompareTag("Bucket") && playerManager.equippedItem.GetComponent<WaterBucket>().bucketFill > 0 && coolerFill < 25 && coolerFill != -1)
                     {
+                        if (!playerManager.equippedItem.GetComponent<AudioSource>().isPlaying)
+                            playerManager.equippedItem.GetComponent<AudioSource>().Play();
                         //Increments the Water Cooler fill up while decrementing the bucket fill down
                         coolerFill += playerManager.equippedItem.GetComponent<WaterBucket>().bucketFillSpeed;
                         playerManager.equippedItem.GetComponent<WaterBucket>().bucketFill -= playerManager.equippedItem.GetComponent<WaterBucket>().bucketFillSpeed;
+                    }
+                    else
+                    {
+                        if (playerManager.equippedItem.GetComponent<AudioSource>().isPlaying)
+                            playerManager.equippedItem.GetComponent<AudioSource>().Stop();
                     }
                 }
             }

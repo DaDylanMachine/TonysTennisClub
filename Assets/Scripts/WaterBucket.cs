@@ -58,7 +58,20 @@ public class WaterBucket : MonoBehaviour
                     {
                         // If it is, increase bucketFill by fill amount
                         if (bucketFill < bucketFillMax)
+                        {
+                            hitInfo.collider.GetComponent<AudioSource>().Play();
                             bucketFill += bucketFillSpeed;
+                            if(!gameObject.GetComponent<AudioSource>().isPlaying)
+                                gameObject.GetComponent<AudioSource>().Play();
+                        }
+                        else
+                        {
+                            hitInfo.collider.GetComponent<AudioSource>().Play();
+                            gameObject.GetComponent<AudioSource>().Play();
+                            if (gameObject.GetComponent<AudioSource>().isPlaying)
+                                gameObject.GetComponent<AudioSource>().Stop();
+                        }
+                            
                     }
                 }
             }

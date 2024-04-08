@@ -9,13 +9,13 @@ public class PeeperLogic : MonoBehaviour
     public float minAggressionTimer = 10.0f;
     public float maxAggressionTimer = 15.0f;
     private float viewTime = 0f;
-    private float viewSpeed = 1f;
+    private float viewSpeed = .9f;
     public float minViewTime = 3.0f;
     private bool angered = false;
     private bool startAnger = false;
     private bool stopAnger = false;
 
-    float damping = 6.0f;
+    //float damping = 6.0f;
 
     private Animator peeperAnimation;
 
@@ -49,12 +49,17 @@ public class PeeperLogic : MonoBehaviour
         if (!startAnger)
         {
             startAnger = true;
+            gameObject.transform.Find("Heartbeat").GetComponent<AudioSource>().Play();
             StartCoroutine(peeperAggression());          
         }
 
         if (angered && peeperAnimation.GetCurrentAnimatorStateInfo(0).IsName("Stalker_run work"))
         {
             agent.SetDestination(target.position);
+            if (!gameObject.transform.Find("PeeperFootsteps").GetComponent<AudioSource>().isPlaying)
+            {
+                gameObject.transform.Find("PeeperFootsteps").GetComponent<AudioSource>().Play();
+            }
         }
 
         Vector3 peeperPosition = Camera.main.WorldToViewportPoint(transform.position);
@@ -86,11 +91,14 @@ public class PeeperLogic : MonoBehaviour
         {
             angered = true;
             peeperAnimation.SetBool("Angered", true);
+            gameObject.transform.Find("Heartbeat").GetComponent<AudioSource>().mute = true;
+            gameObject.GetComponent<AudioSource>().Play();
             Debug.Log("Peeper Angered.");
             
         }
         else
         {
+            gameObject.transform.Find("Heartbeat").GetComponent<AudioSource>().Stop();
             Debug.Log("Peeper Chilling.");
         }
 
@@ -100,12 +108,13 @@ public class PeeperLogic : MonoBehaviour
     {
 
         Debug.Log("Peeper Spotted, despawn.");
-        yield return new WaitForSecondsRealtime(2);
+        yield return new WaitForSecondsRealtime(.1f);
         gameObject.transform.Find("tballright").gameObject.SetActive(true);
         gameObject.transform.Find("tballleft").gameObject.SetActive(true);
         gameObject.transform.Find("tballright").parent = null;
         gameObject.transform.Find("tballleft").parent = null;
         Destroy(gameObject);
+        gameObject.transform.Find("Heartbeat").GetComponent<AudioSource>().Stop();
         GameObject.Find("GameManager").GetComponent<EnemySpawns>().peeperSpawned = false;
     }
 
