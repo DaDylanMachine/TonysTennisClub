@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Brush the Courts with the Cart (0/2)
+  m_Text: Brush Courts 1 and 4 with the Cart (0/2)
 --- !u!1 &3344944707697834614
 GameObject:
   m_ObjectHideFlags: 0

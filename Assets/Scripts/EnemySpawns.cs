@@ -90,9 +90,9 @@ public class EnemySpawns : MonoBehaviour
                 spawnY = UnityEngine.Random.Range(-0.2f, 0.2f);
                 spawnX += Mathf.Sign(spawnX);
                 spawnY += Mathf.Sign(spawnY);
-                spawnZ = UnityEngine.Random.Range(-20.0f, 20.0f);
-                while (spawnZ >= -5 && spawnZ <= 5)
-                    spawnZ = UnityEngine.Random.Range(-20.0f, 20.0f);
+                spawnZ = UnityEngine.Random.Range(-25.0f, 25.0f);
+                while (spawnZ >= -11 && spawnZ <= 11)
+                    spawnZ = UnityEngine.Random.Range(-25.0f, 25.0f);
 
                 //Set the Peeper Spawn point with the relative viewport
                 peeperSpawnSpot = playerCamera.ViewportToWorldPoint(new Vector3(spawnX, spawnY, spawnZ));

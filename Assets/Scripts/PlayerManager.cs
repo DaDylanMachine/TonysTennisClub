@@ -91,14 +91,14 @@ public class PlayerManager : MonoBehaviour
         // Equips or unequips the checklist 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            if (checkList.activeSelf)
+            if (checkList.activeSelf && this.transform.parent == null)
             {
                 gameObject.transform.Find("Main Camera/ChecklistSound").GetComponent<AudioSource>().Play();
                 checkList.SetActive(false);
                 uiChecklist.SetActive(false);
                 itemPosition.SetActive(true);
             }
-            else
+            else if (this.transform.parent == null)
             {
                 gameObject.transform.Find("Main Camera/ChecklistSound").GetComponent<AudioSource>().Play();
                 checkList.SetActive(true);
@@ -155,14 +155,14 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    /*private void FixedUpdate()
     {
         // I've been using this just for debug purposes.
         if (Input.GetKey(KeyCode.T))
         {
             Debug.Log(Time.deltaTime);
         }
-    }
+    }*/
 
     // Function for equipping an item.
     void Equip()
@@ -305,7 +305,7 @@ public class PlayerManager : MonoBehaviour
                 brushObjToggle.isOn = true;
                 goto default;
             default:
-                brushObjText.text = "Brush the Courts with the Cart (" + brushCourts.brushedCourts.ToString() + "/2)";
+                brushObjText.text = "Brush Courts 1 and 4 with the Cart (" + brushCourts.brushedCourts.ToString() + "/2)";
                 break;
         }
 

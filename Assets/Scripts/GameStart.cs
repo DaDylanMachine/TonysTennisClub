@@ -23,7 +23,10 @@ public class GameStart : MonoBehaviour
     public void PlayGame()
     {
         start = true;
-    
+        button1.GetComponent<Button>().interactable = false;
+        button2.GetComponent<Button>().interactable = false;
+
+
     }
 
     public void QuitGame()
